@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180220085219 extends AbstractMigration
+class Version20180220095741 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -23,7 +23,7 @@ class Version20180220085219 extends AbstractMigration
         $this->addSql('CREATE TABLE bordereau_prefecture (bordereau_id INT NOT NULL, prefecture_id INT NOT NULL, INDEX IDX_2747A1BD55D5304E (bordereau_id), INDEX IDX_2747A1BD9D39C865 (prefecture_id), PRIMARY KEY(bordereau_id, prefecture_id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE bordereau_tribunal (bordereau_id INT NOT NULL, tribunal_id INT NOT NULL, INDEX IDX_57BFE16955D5304E (bordereau_id), INDEX IDX_57BFE16975C2CEC3 (tribunal_id), PRIMARY KEY(bordereau_id, tribunal_id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE cas (id INT AUTO_INCREMENT NOT NULL, stagiaires_stages_id INT DEFAULT NULL, cas INT DEFAULT NULL, INDEX IDX_3AD60BB558D120 (stagiaires_stages_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE fonction (id INT AUTO_INCREMENT NOT NULL, fonction VARCHAR(255) DEFAULT NULL, fonction_deux VARCHAR(255) DEFAULT NULL, id_animateurs INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE fonction (id INT AUTO_INCREMENT NOT NULL, id_animateurs_id INT DEFAULT NULL, fonction VARCHAR(255) DEFAULT NULL, fonction_deux VARCHAR(255) DEFAULT NULL, UNIQUE INDEX UNIQ_900D5BD2E215915 (id_animateurs_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE infraction (id INT AUTO_INCREMENT NOT NULL, types_infractions_id INT DEFAULT NULL, heure DATETIME DEFAULT NULL, lieu VARCHAR(255) DEFAULT NULL, date_infraction DATE DEFAULT NULL, cs_permis VARCHAR(255) DEFAULT NULL, cs_assurance VARCHAR(255) DEFAULT NULL, INDEX IDX_C1A458F5AF81BF54 (types_infractions_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE lieux_de_stage (id INT AUTO_INCREMENT NOT NULL, lieux VARCHAR(255) DEFAULT NULL, organisme VARCHAR(255) DEFAULT NULL, adresse VARCHAR(255) DEFAULT NULL, code_postal INT DEFAULT NULL, ville VARCHAR(255) DEFAULT NULL, numero_telephone_fixe INT DEFAULT NULL, latitude NUMERIC(10, 8) DEFAULT NULL, longitude NUMERIC(10, 8) DEFAULT NULL, divers VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE permis (id INT AUTO_INCREMENT NOT NULL, stagiaires_id INT DEFAULT NULL, civilite VARCHAR(255) NOT NULL, nom VARCHAR(255) DEFAULT NULL, nom_epouse VARCHAR(255) DEFAULT NULL, prenom VARCHAR(255) DEFAULT NULL, numero_permis VARCHAR(255) DEFAULT NULL, delivre_le DATE DEFAULT NULL, UNIQUE INDEX UNIQ_17389453887A63F9 (stagiaires_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
@@ -46,6 +46,7 @@ class Version20180220085219 extends AbstractMigration
         $this->addSql('ALTER TABLE bordereau_tribunal ADD CONSTRAINT FK_57BFE16955D5304E FOREIGN KEY (bordereau_id) REFERENCES bordereau (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE bordereau_tribunal ADD CONSTRAINT FK_57BFE16975C2CEC3 FOREIGN KEY (tribunal_id) REFERENCES tribunal (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE cas ADD CONSTRAINT FK_3AD60BB558D120 FOREIGN KEY (stagiaires_stages_id) REFERENCES stagiaire_stage (id)');
+        $this->addSql('ALTER TABLE fonction ADD CONSTRAINT FK_900D5BD2E215915 FOREIGN KEY (id_animateurs_id) REFERENCES animateur (id)');
         $this->addSql('ALTER TABLE infraction ADD CONSTRAINT FK_C1A458F5AF81BF54 FOREIGN KEY (types_infractions_id) REFERENCES type_infraction (id)');
         $this->addSql('ALTER TABLE permis ADD CONSTRAINT FK_17389453887A63F9 FOREIGN KEY (stagiaires_id) REFERENCES stagiaire (id)');
         $this->addSql('ALTER TABLE prefecture ADD CONSTRAINT FK_ABE6511A3594A24E FOREIGN KEY (permis_id) REFERENCES permis (id)');
@@ -65,6 +66,7 @@ class Version20180220085219 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE animateur_stage DROP FOREIGN KEY FK_4A06D2447F05C301');
+        $this->addSql('ALTER TABLE fonction DROP FOREIGN KEY FK_900D5BD2E215915');
         $this->addSql('ALTER TABLE stage_animateur DROP FOREIGN KEY FK_136F210D7F05C301');
         $this->addSql('ALTER TABLE bordereau_prefecture DROP FOREIGN KEY FK_2747A1BD55D5304E');
         $this->addSql('ALTER TABLE bordereau_tribunal DROP FOREIGN KEY FK_57BFE16955D5304E');

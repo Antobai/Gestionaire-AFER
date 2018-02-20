@@ -28,6 +28,10 @@ class Infraction
      */
     private $date_infraction;
     /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_tribunal;
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $cs_permis;
