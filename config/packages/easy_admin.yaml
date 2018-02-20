@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+        - App\Entity\Admin
+        - App\Entity\Administration
+        - App\Entity\Animateur
+        - App\Entity\Bordereau
+        - App\Entity\Cas
+        - App\Entity\Fonction
+        - App\Entity\Infraction
+        - App\Entity\Lieux_de_stage
+        - App\Entity\Permis
+        - App\Entity\Prefecture
+        - App\Entity\Stage
+        - App\Entity\Stagiaire_Stage
+        - App\Entity\Stagiaire
+        - App\Entity\Tribunal
+        - App\Entity\Type_infraction
