@@ -24,7 +24,7 @@ class Fonction
      */
     private $fonction_deux;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Animateur")
      */
     private $id_animateurs;
 
@@ -106,5 +106,8 @@ class Fonction
         $this->id_animateurs = $id_animateurs;
 
         return $this;
+    }
+    public function __toString() {
+        return $this->id_animateurs;
     }
 }

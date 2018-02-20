@@ -27,11 +27,6 @@ class Tribunal
      * @ORM\Column(type="string", nullable=true)
      */
     private $numero_parquet;
-     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Infraction", inversedBy="stagiaires")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $infractions;
     /**
      * Get the value of id
      */ 
