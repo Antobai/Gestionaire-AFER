@@ -12,7 +12,7 @@ class Infraction
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $id;
     /**
@@ -229,7 +229,7 @@ class Infraction
 
         return $this;
     }
-        public function __toString() {
+    public function __toString() {
         return $this->types_infractions;
-}
+    }
 }

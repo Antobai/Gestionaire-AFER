@@ -63,7 +63,11 @@ class Stagiaire
      * @ORM\Column(type="integer", nullable=true)
      */
     private $numero_telephone_portable;
-        /**
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $numero_telephone_portable_deux;
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $adresse_email;
@@ -594,7 +598,7 @@ class Stagiaire
     /**
      * Get the value of stagiaires_stages
      */ 
-    public function getStagiairesstages()
+    public function getStagiairesStages()
     {
         return $this->stagiaires_stages;
     }
@@ -604,7 +608,7 @@ class Stagiaire
      *
      * @return  self
      */ 
-    public function setStagiairesstages($stagiaires_stages)
+    public function setStagiairesStages($stagiaires_stages)
     {
         $this->stagiaires_stages = $stagiaires_stages;
 
@@ -613,4 +617,24 @@ class Stagiaire
     public function __toString() {
     return $this->nom . $this->prenom;
 }
+
+    /**
+     * Get the value of numero_telephone_portable_deux
+     */ 
+    public function getNumeroTelephonePortableDeux()
+    {
+        return $this->numero_telephone_portable_deux;
+    }
+
+    /**
+     * Set the value of numero_telephone_portable_deux
+     *
+     * @return  self
+     */ 
+    public function setNumeroTelephonePortableDeux($numero_telephone_portable_deux)
+    {
+        $this->numero_telephone_portable_deux = $numero_telephone_portable_deux;
+
+        return $this;
+    }
 }
