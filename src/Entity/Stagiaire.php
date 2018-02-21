@@ -109,10 +109,15 @@ class Stagiaire
      * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="stagiaires")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $stagiaires_stages;
+    private $infractions;
+    /**
+    * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stagiaires")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $stages;
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -121,7 +126,7 @@ class Stagiaire
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -130,7 +135,7 @@ class Stagiaire
     }
     /**
      * Get the value of genre
-     */ 
+     */
     public function getGenre()
     {
         return $this->genre;
@@ -139,7 +144,7 @@ class Stagiaire
      * Set the value of genre
      *
      * @return  self
-     */ 
+     */
     public function setGenre($genre)
     {
         $this->genre = $genre;
@@ -148,7 +153,7 @@ class Stagiaire
     }
     /**
      * Get the value of nom
-     */ 
+     */
     public function getNom()
     {
         return $this->nom;
@@ -157,7 +162,7 @@ class Stagiaire
      * Set the value of nom
      *
      * @return  self
-     */ 
+     */
     public function setNom($nom)
     {
         $this->nom = $nom;
@@ -166,7 +171,7 @@ class Stagiaire
     }
     /**
      * Get the value of nom_epouse
-     */ 
+     */
     public function getNomepouse()
     {
         return $this->nom_epouse;
@@ -175,7 +180,7 @@ class Stagiaire
      * Set the value of nom_epouse
      *
      * @return  self
-     */ 
+     */
     public function setNomepouse($nom_epouse)
     {
         $this->nom_epouse = $nom_epouse;
@@ -184,7 +189,7 @@ class Stagiaire
     }
     /**
      * Get the value of prenom
-     */ 
+     */
     public function getPrenom()
     {
         return $this->prenom;
@@ -192,7 +197,7 @@ class Stagiaire
     /**
      * Set the value of prenom
      * @return  self
-     */ 
+     */
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
@@ -201,7 +206,7 @@ class Stagiaire
     }
     /**
      * Get the value of date_de_naissance
-     */ 
+     */
     public function getDatedenaissance()
     {
         return $this->date_de_naissance;
@@ -210,7 +215,7 @@ class Stagiaire
      * Set the value of date_de_naissance
      *
      * @return  self
-     */ 
+     */
     public function setDatedenaissance($date_de_naissance)
     {
         $this->date_de_naissance = $date_de_naissance;
@@ -219,7 +224,7 @@ class Stagiaire
     }
     /**
      * Get the value of lieu_de_naissance
-     */ 
+     */
     public function getLieudenaissance()
     {
         return $this->lieu_de_naissance;
@@ -228,7 +233,7 @@ class Stagiaire
      * Set the value of lieu_de_naissance
      *
      * @return  self
-     */ 
+     */
     public function setLieudenaissance($lieu_de_naissance)
     {
         $this->lieu_de_naissance = $lieu_de_naissance;
@@ -236,7 +241,7 @@ class Stagiaire
     }
     /**
      * Get the value of pays
-     */ 
+     */
     public function getPays()
     {
         return $this->pays;
@@ -245,7 +250,7 @@ class Stagiaire
      * Set the value of pays
      *
      * @return  self
-     */ 
+     */
     public function setPays($pays)
     {
         $this->pays = $pays;
@@ -253,7 +258,7 @@ class Stagiaire
     }
     /**
      * Get the value of adresse
-     */ 
+     */
     public function getAdresse()
     {
         return $this->adresse;
@@ -262,7 +267,7 @@ class Stagiaire
      * Set the value of adresse
      *
      * @return  self
-     */ 
+     */
     public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
@@ -270,7 +275,7 @@ class Stagiaire
     }
     /**
      * Get the value of code_postal
-     */ 
+     */
     public function getCodepostal()
     {
         return $this->code_postal;
@@ -279,7 +284,7 @@ class Stagiaire
      * Set the value of code_postal
      *
      * @return  self
-     */ 
+     */
     public function setCodepostal($code_postal)
     {
         $this->code_postal = $code_postal;
@@ -288,7 +293,7 @@ class Stagiaire
     }
     /**
      * Get the value of commune
-     */ 
+     */
     public function getCommune()
     {
         return $this->commune;
@@ -297,7 +302,7 @@ class Stagiaire
      * Set the value of commune
      *
      * @return  self
-     */ 
+     */
     public function setCommune($commune)
     {
         $this->commune = $commune;
@@ -305,7 +310,7 @@ class Stagiaire
     }
     /**
      * Get the value of numero_telephone_fixe
-     */ 
+     */
     public function getNumerotelephonefixe()
     {
         return $this->numero_telephone_fixe;
@@ -314,7 +319,7 @@ class Stagiaire
      * Set the value of numero_telephone_fixe
      *
      * @return  self
-     */ 
+     */
     public function setNumerotelephonefixe($numero_telephone_fixe)
     {
         $this->numero_telephone_fixe = $numero_telephone_fixe;
@@ -322,7 +327,7 @@ class Stagiaire
     }
     /**
      * Get the value of numero_telephone_portable
-     */ 
+     */
     public function getNumerotelephoneportable()
     {
         return $this->numero_telephone_portable;
@@ -331,7 +336,7 @@ class Stagiaire
      * Set the value of numero_telephone_portable
      *
      * @return  self
-     */ 
+     */
     public function setNumerotelephoneportable($numero_telephone_portable)
     {
         $this->numero_telephone_portable = $numero_telephone_portable;
@@ -339,7 +344,7 @@ class Stagiaire
     }
     /**
      * Get the value of adresse_email
-     */ 
+     */
     public function getAdresseemail()
     {
         return $this->adresse_email;
@@ -348,7 +353,7 @@ class Stagiaire
      * Set the value of adresse_email
      *
      * @return  self
-     */ 
+     */
     public function setAdresseemail($adresse_email)
     {
         $this->adresse_email = $adresse_email;
@@ -356,7 +361,7 @@ class Stagiaire
     }
     /**
      * Get the value of carte_avantage_jeunes
-     */ 
+     */
     public function getCarteavantagejeunes()
     {
         return $this->carte_avantage_jeunes;
@@ -365,7 +370,7 @@ class Stagiaire
      * Set the value of carte_avantage_jeunes
      *
      * @return  self
-     */ 
+     */
     public function setCarteavantagejeunes($carte_avantage_jeunes)
     {
         $this->carte_avantage_jeunes = $carte_avantage_jeunes;
@@ -373,7 +378,7 @@ class Stagiaire
     }
     /**
      * Get the value of partenaires
-     */ 
+     */
     public function getPartenaires()
     {
         return $this->partenaires;
@@ -382,7 +387,7 @@ class Stagiaire
      * Set the value of partenaires
      *
      * @return  self
-     */ 
+     */
     public function setPartenaires($partenaires)
     {
         $this->partenaires = $partenaires;
@@ -390,7 +395,7 @@ class Stagiaire
     }
     /**
      * Get the value of adherents
-     */ 
+     */
     public function getAdherents()
     {
         return $this->adherents;
@@ -399,7 +404,7 @@ class Stagiaire
      * Set the value of adherents
      *
      * @return  self
-     */ 
+     */
     public function setAdherents($adherents)
     {
         $this->adherents = $adherents;
@@ -407,7 +412,7 @@ class Stagiaire
     }
     /**
      * Get the value of permis
-     */ 
+     */
     public function getPermis()
     {
         return $this->permis;
@@ -416,7 +421,7 @@ class Stagiaire
      * Set the value of permis
      *
      * @return  self
-     */ 
+     */
     public function setPermis($permis)
     {
         $this->permis = $permis;
@@ -424,7 +429,7 @@ class Stagiaire
     }
     /**
      * Get the value of bordereaux
-     */ 
+     */
     public function getBordereaux()
     {
         return $this->bordereaux;
@@ -433,7 +438,7 @@ class Stagiaire
      * Set the value of bordereaux
      *
      * @return  self
-     */ 
+     */
     public function setBordereaux($bordereaux)
     {
         $this->bordereaux = $bordereaux;
@@ -441,7 +446,7 @@ class Stagiaire
     }
     /**
      * Get the value of administrations
-     */ 
+     */
     public function getAdministrations()
     {
         return $this->administrations;
@@ -450,7 +455,7 @@ class Stagiaire
      * Set the value of administrations
      *
      * @return  self
-     */ 
+     */
     public function setAdministrations($administrations)
     {
         $this->administrations = $administrations;
@@ -458,7 +463,7 @@ class Stagiaire
     }
     /**
      * Get the value of cas
-     */ 
+     */
     public function getCas()
     {
         return $this->cas;
@@ -467,7 +472,7 @@ class Stagiaire
      * Set the value of cas
      *
      * @return  self
-     */ 
+     */
     public function setCas($cas)
     {
         $this->cas = $cas;
@@ -475,7 +480,7 @@ class Stagiaire
     }
     /**
      * Get the value of infractions
-     */ 
+     */
     public function getInfractions()
     {
         return $this->infractions;
@@ -484,15 +489,32 @@ class Stagiaire
      * Set the value of infractions
      *
      * @return  self
-     */ 
+     */
     public function setInfractions($infractions)
     {
         $this->infractions = $infractions;
         return $this;
     }
     /**
+     * Get the value of stages
+     */
+    public function getStages()
+    {
+        return $this->stages;
+    }
+    /**
+     * Set the value of stages
+     *
+     * @return  self
+     */
+    public function setStages($stages)
+    {
+        $this->stages = $stages;
+        return $this;
+    }
+    /**
      * Get the value of type_infractions
-     */ 
+     */
     public function getTypeInfractions()
     {
         return $this->type_infractions;
@@ -501,7 +523,7 @@ class Stagiaire
      * Set the value of type_infractions
      *
      * @return  self
-     */ 
+     */
     public function setTypeInfractions($type_infractions)
     {
         $this->type_infractions = $type_infractions;
@@ -509,7 +531,7 @@ class Stagiaire
     }
     /**
      * Get the value of stagiaires_stages
-     */ 
+     */
     public function getStagiairesStages()
     {
         return $this->stagiaires_stages;
@@ -518,7 +540,7 @@ class Stagiaire
      * Set the value of stagiaires_stages
      *
      * @return  self
-     */ 
+     */
     public function setStagiairesStages($stagiaires_stages)
     {
         $this->stagiaires_stages = $stagiaires_stages;
@@ -526,7 +548,7 @@ class Stagiaire
     }
     /**
      * Get the value of numero_telephone_portable_deux
-     */ 
+     */
     public function getNumeroTelephonePortableDeux()
     {
         return $this->numero_telephone_portable_deux;
@@ -535,15 +557,14 @@ class Stagiaire
      * Set the value of numero_telephone_portable_deux
      *
      * @return  self
-     */ 
+     */
     public function setNumeroTelephonePortableDeux($numero_telephone_portable_deux)
     {
         $this->numero_telephone_portable_deux = $numero_telephone_portable_deux;
         return $this;
     }
-    public function __toString() 
+    public function __toString()
     {
-        $stagiaires = $this->nom . $this->prenom;
-        return $this->nom . $this->prenom;
+        return $this->nom ." ". $this->prenom;
     }
 }
