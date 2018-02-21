@@ -45,18 +45,18 @@ class Stagiaire_Stage
      */
     private $bordereaux;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire", inversedBy="stages")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $stagiaires;
+    public $stagiaires;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Stage")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stage", inversedBy="stagiaires")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $stages;
+    public $stages;
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -66,7 +66,7 @@ class Stagiaire_Stage
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -76,7 +76,7 @@ class Stagiaire_Stage
 
     /**
      * Get the value of paye
-     */ 
+     */
     public function getPaye()
     {
         return $this->paye;
@@ -86,7 +86,7 @@ class Stagiaire_Stage
      * Set the value of paye
      *
      * @return  self
-     */ 
+     */
     public function setPaye($paye)
     {
         $this->paye = $paye;
@@ -96,7 +96,7 @@ class Stagiaire_Stage
 
     /**
      * Get the value of prix
-     */ 
+     */
     public function getPrix()
     {
         return $this->prix;
@@ -106,7 +106,7 @@ class Stagiaire_Stage
      * Set the value of prix
      *
      * @return  self
-     */ 
+     */
     public function setPrix($prix)
     {
         $this->prix = $prix;
@@ -116,7 +116,7 @@ class Stagiaire_Stage
 
     /**
      * Get the value of stages
-     */ 
+     */
     public function getStages()
     {
         return $this->stages;
@@ -126,7 +126,7 @@ class Stagiaire_Stage
      * Set the value of stages
      *
      * @return  self
-     */ 
+     */
     public function setStages($stages)
     {
         $this->stages = $stages;
@@ -136,7 +136,7 @@ class Stagiaire_Stage
 
     /**
      * Get the value of cas
-     */ 
+     */
     public function getCas()
     {
         return $this->cas;
@@ -146,7 +146,7 @@ class Stagiaire_Stage
      * Set the value of cas
      *
      * @return  self
-     */ 
+     */
     public function setCas($cas)
     {
         $this->cas = $cas;
@@ -156,7 +156,7 @@ class Stagiaire_Stage
 
     /**
      * Get the value of bordereaux
-     */ 
+     */
     public function getBordereaux()
     {
         return $this->bordereaux;
@@ -166,7 +166,7 @@ class Stagiaire_Stage
      * Set the value of bordereaux
      *
      * @return  self
-     */ 
+     */
     public function setBordereaux($bordereaux)
     {
         $this->bordereaux = $bordereaux;
@@ -176,7 +176,7 @@ class Stagiaire_Stage
 
     /**
      * Get the value of stagiaires
-     */ 
+     */
     public function getStagiaires()
     {
         return $this->stagiaires;
@@ -186,11 +186,15 @@ class Stagiaire_Stage
      * Set the value of stagiaires
      *
      * @return  self
-     */ 
+     */
     public function setStagiaires($stagiaires)
     {
         $this->stagiaires = $stagiaires;
 
         return $this;
+    }
+
+    public function __toString() {
+      return $this->stagiaires->__toString();
     }
 }
