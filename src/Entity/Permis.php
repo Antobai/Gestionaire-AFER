@@ -62,7 +62,7 @@ class Permis
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getIdPermis()
     {
         return $this->id;
     }
@@ -72,7 +72,7 @@ class Permis
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setIdPermis($id)
     {
         $this->id = $id;
 

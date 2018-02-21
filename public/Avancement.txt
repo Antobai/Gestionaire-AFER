@@ -1,0 +1,39 @@
+ENTITY FINI 
+    -Type_infraction
+    -Tribunal
+    -Fonction
+    -Admin
+    -Infraction
+    
+
+ENTITY AFINIR : PARCe-QUE 
+    -Stagiaire :       3*"Pourquoi Administration dans Stagiaire ?",4*Bordereau ?.
+    -Stagiaires_stage: 1*__toString, 2*faut il remettre cas , bordereau et stagire stage vue que un stagiaire et lier a un stage déjà?
+    -Stage :           2* toutes les liasons n'ont pas l'air de ce faire.
+    -Prefecture:       1* Permis bizar de choisir un permi dans cette table
+    -Permis:           1* est ratacher a un stagiaire pourquoi on doit remplir encore des champs nom et premon ? 
+    -Lieux_de_stage    1* sa a l'air de marcher j'ai juste un problem de diff "[warning] Failed to save key "%5B%5BC%5DApp%5CEntity%5
+                                                                                CLieux_de_stage%24code_postal%5D%5B1%5D" (integer)
+                                                                                2018-02-21T09:15:26+01:00 [warning] Failed to save key "%5B%5BC%5DApp%5CEntity%5
+                                                                                CLieux_de_stage%24divers%5D%5B1%5D" (integer)"
+    -Cas               1* Stagiaire_stzges ? 
+    -Bordereau         1* une fatal error
+    -Animateur         1* on peut enlever le champs stages ? 
+    -administrateur    1* encore un string mais 'vert cette fois ci' 
+
+
+
+
+    mes changements 
+             dans infractions stagiaires L43 
+                    /** ancien
+                    * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire", mappedBy="infractions")
+                    * @ORM\JoinColumn(nullable=true)
+                    */
+                private $stagiaires;
+            dans stagiare infraction L108
+                 /**
+                * @ORM\OneToMany(targetEntity="App\Entity\Infraction", mappedBy="stagiaires")
+                * @ORM\JoinColumn(nullable=true)
+                */
+                private $infractions;

@@ -39,9 +39,10 @@ class Infraction
      * @ORM\Column(type="string", nullable=true)
      */
     private $cs_assurance;
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire", mappedBy="infractions")
-     * @ORM\JoinColumn(nullable=true)
+    /** 
+     * 
+     * //une infraction à un stagiaire , un stagiare peut faire plusieur infraction
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire")
      */
     private $stagiaires;
     /**
@@ -251,6 +252,25 @@ class Infraction
     public function setTypesinfractions($types_infractions)
     {
         $this->types_infractions = $types_infractions;
+
+        return $this;
+    }
+    /**
+     * Get the value of date_tribunal
+     */ 
+    public function getDateTribunal()
+    {
+        return $this->date_tribunal;
+    }
+
+    /**
+     * Set the value of date_tribunal
+     *
+     * @return  self
+     */ 
+    public function setDateTribunal($date_tribunal)
+    {
+        $this->date_tribunal = $date_tribunal;
 
         return $this;
     }

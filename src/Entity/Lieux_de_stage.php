@@ -51,10 +51,16 @@ class Lieux_de_stage
      * @ORM\Column(type="string", nullable=true)
      */
     private $divers;
-    
+
+    /**
+    * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="lieux_de_stage")
+    */
+    private $stages; // Notez le « s », une annonce est liée à plusieurs candidatures
+
+
     /**
      * Get the value of latitude
-     */ 
+     */
     public function getLatitude()
     {
         return $this->latitude;
@@ -64,7 +70,7 @@ class Lieux_de_stage
      * Set the value of latitude
      *
      * @return  self
-     */ 
+     */
     public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
@@ -74,7 +80,7 @@ class Lieux_de_stage
 
     /**
      * Get the value of longitude
-     */ 
+     */
     public function getLongitude()
     {
         return $this->longitude;
@@ -84,7 +90,7 @@ class Lieux_de_stage
      * Set the value of longitude
      *
      * @return  self
-     */ 
+     */
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
@@ -94,7 +100,7 @@ class Lieux_de_stage
 
     /**
      * Get the value of divers
-     */ 
+     */
     public function getDivers()
     {
         return $this->divers;
@@ -104,7 +110,7 @@ class Lieux_de_stage
      * Set the value of divers
      *
      * @return  self
-     */ 
+     */
     public function setDivers($divers)
     {
         $this->divers = $divers;
@@ -117,108 +123,28 @@ class Lieux_de_stage
     }
 
     /**
-     * Get the value of id
-     */ 
-    public function getId()
+     * Get the value of numero_telephone_fixe
+     */
+    public function getNumeroTelephoneFixe()
     {
-        return $this->id;
+        return $this->numero_telephone_fixe;
     }
 
     /**
-     * Set the value of id
+     * Set the value of numero_telephone_fixe
      *
      * @return  self
-     */ 
-    public function setId($id)
+     */
+    public function setNumeroTelephoneFixe($numero_telephone_fixe)
     {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of lieux
-     */ 
-    public function getLieux()
-    {
-        return $this->lieux;
-    }
-
-    /**
-     * Set the value of lieux
-     *
-     * @return  self
-     */ 
-    public function setLieux($lieux)
-    {
-        $this->lieux = $lieux;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of organisme
-     */ 
-    public function getOrganisme()
-    {
-        return $this->organisme;
-    }
-
-    /**
-     * Set the value of organisme
-     *
-     * @return  self
-     */ 
-    public function setOrganisme($organisme)
-    {
-        $this->organisme = $organisme;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of adresse
-     */ 
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
-
-    /**
-     * Set the value of adresse
-     *
-     * @return  self
-     */ 
-    public function setAdresse($adresse)
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of code_postal
-     */ 
-    public function getCodepostal()
-    {
-        return $this->code_postal;
-    }
-
-    /**
-     * Set the value of code_postal
-     *
-     * @return  self
-     */ 
-    public function setCodepostal($code_postal)
-    {
-        $this->code_postal = $code_postal;
+        $this->numero_telephone_fixe = $numero_telephone_fixe;
 
         return $this;
     }
 
     /**
      * Get the value of ville
-     */ 
+     */
     public function getVille()
     {
         return $this->ville;
@@ -228,7 +154,7 @@ class Lieux_de_stage
      * Set the value of ville
      *
      * @return  self
-     */ 
+     */
     public function setVille($ville)
     {
         $this->ville = $ville;
@@ -237,22 +163,127 @@ class Lieux_de_stage
     }
 
     /**
-     * Get the value of numero_telephone_fixe
-     */ 
-    public function getNumerotelephonefixe()
+     * Get the value of code_postal
+     */
+    public function getCodePostal()
     {
-        return $this->numero_telephone_fixe;
+        return $this->code_postal;
     }
 
     /**
-     * Set the value of numero_telephone_fixe
+     * Set the value of code_postal
      *
      * @return  self
-     */ 
-    public function setNumerotelephonefixe($numero_telephone_fixe)
+     */
+    public function setCodePostal($code_postal)
     {
-        $this->numero_telephone_fixe = $numero_telephone_fixe;
+        $this->code_postal = $code_postal;
 
         return $this;
     }
+
+    /**
+     * Get the value of adresse
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set the value of adresse
+     *
+     * @return  self
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of organisme
+     */
+    public function getOrganisme()
+    {
+        return $this->organisme;
+    }
+
+    /**
+     * Set the value of organisme
+     *
+     * @return  self
+     */
+    public function setOrganisme($organisme)
+    {
+        $this->organisme = $organisme;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lieux
+     */
+    public function getLieux()
+    {
+        return $this->lieux;
+    }
+
+    /**
+     * Set the value of lieux
+     *
+     * @return  self
+     */
+    public function setLieux($lieux)
+    {
+        $this->lieux = $lieux;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Stages
+     *
+     * @return mixed
+     */
+    public function getStages()
+    {
+        return $this->stages;
+    }
+
+    /**
+     * Set the value of Stages
+     *
+     * @param mixed stages
+     *
+     * @return self
+     */
+    public function setStages($stages)
+    {
+        $this->stages = $stages;
+
+        return $this;
+    }
+
 }

@@ -19,7 +19,6 @@ class Fonction
      * @ORM\Column(type="string", nullable=true)
      */
     private $fonction;
-
     /**
      * Get the value of id
      */ 
@@ -27,7 +26,6 @@ class Fonction
     {
         return $this->id;
     }
-
     /**
      * Set the value of id
      *
@@ -36,10 +34,8 @@ class Fonction
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
-
     /**
      * Get the value of fonction
      */ 
@@ -47,19 +43,17 @@ class Fonction
     {
         return $this->fonction;
     }
-
     /**
      * Set the value of fonction
-     *
      * @return  self
      */ 
     public function setFonction($fonction)
     {
         $this->fonction = $fonction;
-
         return $this;
     }
-    public function __toString() {
+    public function __toString()
+    {
         return $this->fonction;
     }
 }

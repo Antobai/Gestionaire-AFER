@@ -42,10 +42,6 @@ class Animateur
      * @ORM\OneToOne(targetEntity="App\Entity\Fonction", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
-    private $fonctions;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
     private $statut;
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -187,27 +183,7 @@ class Animateur
 
         return $this;
     }
-
-    /**
-     * Get the value of fonctions
-     */ 
-    public function getFonctions()
-    {
-        return $this->fonctions;
-    }
-
-    /**
-     * Set the value of fonctions
-     *
-     * @return  self
-     */ 
-    public function setFonctions($fonctions)
-    {
-        $this->fonctions = $fonctions;
-
-        return $this;
-    }
-
+    
     /**
      * Get the value of statut
      */ 
@@ -507,7 +483,6 @@ class Animateur
 
         return $this;
     }
-
     /**
      * Get the value of stages
      */ 
@@ -524,6 +499,26 @@ class Animateur
     public function setStages($stages)
     {
         $this->stages = $stages;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fonctions
+     */ 
+    public function getFonctions()
+    {
+        return $this->fonctions;
+    }
+
+    /**
+     * Set the value of fonctions
+     *
+     * @return  self
+     */ 
+    public function setFonctions($fonctions)
+    {
+        $this->fonctions = $fonctions;
 
         return $this;
     }

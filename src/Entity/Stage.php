@@ -26,44 +26,42 @@ class Stage
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $fonction;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
     private $animateur_deux;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $fonction_deux;
     /**
      * @ORM\Column(type="boolean", options={"default":false})
      * @ORM\JoinColumn(nullable=true)
      */
     private $stage_hpo;
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Lieux_de_stage", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lieux_de_stage", inversedBy="stage")
      */
-     private $lieux_de_stage;
+    private $lieux_de_stage;
      /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stagiaires")
+     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stages")
      * @ORM\JoinColumn(nullable=true)
      */
     private $stagiaires;
 
+
+
+
     /**
-     * Get the value of id
-     */ 
+     * Get the value of Id
+     *
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
     /**
-     * Set the value of id
+     * Set the value of Id
      *
-     * @return  self
-     */ 
+     * @param mixed id
+     *
+     * @return self
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -72,19 +70,23 @@ class Stage
     }
 
     /**
-     * Get the value of date_de_stage
-     */ 
-    public function getDatedestage()
+     * Get the value of Date De Stage
+     *
+     * @return mixed
+     */
+    public function getDateDeStage()
     {
         return $this->date_de_stage;
     }
 
     /**
-     * Set the value of date_de_stage
+     * Set the value of Date De Stage
      *
-     * @return  self
-     */ 
-    public function setDatedestage($date_de_stage)
+     * @param mixed date_de_stage
+     *
+     * @return self
+     */
+    public function setDateDeStage($date_de_stage)
     {
         $this->date_de_stage = $date_de_stage;
 
@@ -92,38 +94,22 @@ class Stage
     }
 
     /**
-     * Get the value of lieu_de_stage
-     */ 
-    public function getLieudestage()
-    {
-        return $this->lieu_de_stage;
-    }
-
-    /**
-     * Set the value of lieu_de_stage
+     * Get the value of Animateur
      *
-     * @return  self
-     */ 
-    public function setLieudestage($lieu_de_stage)
-    {
-        $this->lieu_de_stage = $lieu_de_stage;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of animateur
-     */ 
+     * @return mixed
+     */
     public function getAnimateur()
     {
         return $this->animateur;
     }
 
     /**
-     * Set the value of animateur
+     * Set the value of Animateur
      *
-     * @return  self
-     */ 
+     * @param mixed animateur
+     *
+     * @return self
+     */
     public function setAnimateur($animateur)
     {
         $this->animateur = $animateur;
@@ -132,39 +118,23 @@ class Stage
     }
 
     /**
-     * Get the value of fonction
-     */ 
-    public function getFonction()
-    {
-        return $this->fonction;
-    }
-
-    /**
-     * Set the value of fonction
+     * Get the value of Animateur Deux
      *
-     * @return  self
-     */ 
-    public function setFonction($fonction)
-    {
-        $this->fonction = $fonction;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of animateur_deux
-     */ 
-    public function getAnimateurdeux()
+     * @return mixed
+     */
+    public function getAnimateurDeux()
     {
         return $this->animateur_deux;
     }
 
     /**
-     * Set the value of animateur_deux
+     * Set the value of Animateur Deux
      *
-     * @return  self
-     */ 
-    public function setAnimateurdeux($animateur_deux)
+     * @param mixed animateur_deux
+     *
+     * @return self
+     */
+    public function setAnimateurDeux($animateur_deux)
     {
         $this->animateur_deux = $animateur_deux;
 
@@ -172,67 +142,85 @@ class Stage
     }
 
     /**
-     * Get the value of stage_hpo
-     */ 
-    public function getStagehpo()
+     * Get the value of Stage Hpo
+     *
+     * @return mixed
+     */
+    public function getStageHpo()
     {
         return $this->stage_hpo;
     }
 
     /**
-     * Set the value of stage_hpo
+     * Set the value of Stage Hpo
      *
-     * @return  self
-     */ 
-    public function setStagehpo($stage_hpo)
+     * @param mixed stage_hpo
+     *
+     * @return self
+     */
+    public function setStageHpo($stage_hpo)
     {
         $this->stage_hpo = $stage_hpo;
 
         return $this;
     }
 
-     /**
-      * Get the value of Lieux_de_stage
-      */ 
-     public function getlieuxdestage()
-     {
-          return $this->lieux_de_stage;
-     }
-
-     /**
-      * Set the value of Lieux_de_stage
-      *
-      * @return  self
-      */ 
-     public function setlieuxdestage($lieux_de_stage)
-     {
-          $this->lieux_de_stage = $lieux_de_stage;
-
-          return $this;
-     }
-    public function __toString() {
-        /*$date = $this->date_de_stage;
-       $string = $date->format(DATE_RFC2822);*/
-    return " " ;//------------------------------------------------->lieu
-}
+    /**
+     * Get the value of Lieux De Stage
+     *
+     * @return mixed
+     */
+    public function getLieuxDeStage()
+    {
+        return $this->lieux_de_stage;
+    }
 
     /**
-     * Get the value of stagiaires
-     */ 
+     * Set the value of Lieux De Stage
+     *
+     * @param mixed lieux_de_stage
+     *
+     * @return self
+     */
+    public function setLieuxDeStage($lieux_de_stage)
+    {
+        $this->lieux_de_stage = $lieux_de_stage;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Stagiaires
+     *
+     * @return mixed
+     */
     public function getStagiaires()
     {
         return $this->stagiaires;
     }
 
     /**
-     * Set the value of stagiaires
+     * Set the value of Stagiaires
      *
-     * @return  self
-     */ 
+     * @param mixed stagiaires
+     *
+     * @return self
+     */
     public function setStagiaires($stagiaires)
     {
         $this->stagiaires = $stagiaires;
 
         return $this;
     }
+
+    public function __toString() {
+      if(isset($this->lieux_de_stage)) {
+        return $this->lieux_de_stage->__toString();
+      }
+      else {
+        return "Stage sans lieu indiqué";
+      }
+
+    }
+
 }

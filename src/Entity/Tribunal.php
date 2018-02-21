@@ -62,7 +62,10 @@ class Tribunal
 
         return $this;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 538fddbfb81b11ae8b52124ccee05b72e466981f
     /**
      * Get the value of numero_parquet
      */ 
@@ -70,7 +73,6 @@ class Tribunal
     {
         return $this->numero_parquet;
     }
-
     /**
      * Set the value of numero_parquet
      *
@@ -82,7 +84,6 @@ class Tribunal
 
         return $this;
     }
-
     /**
      * Get the value of infractions
      */ 
@@ -90,7 +91,6 @@ class Tribunal
     {
         return $this->infractions;
     }
-
     /**
      * Set the value of infractions
      *
