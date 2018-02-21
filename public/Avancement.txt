@@ -1,0 +1,20 @@
+ENTITY FINI 
+    -Type_infraction
+    -Tribunal
+    -Fonction
+    
+
+ENTITY AFINIR : PARCe-QUE 
+    -Stagiaire :       1*infractions n'est pas reconnu, 2*la date no format, 3*"Pourquoi Administration dans Stagiaire ?",4*Bordereau ?.
+    -Stagiaires_stage: 1*__toString, 2*faut il remettre cas , bordereau et stagire stage vue que un stagiaire et lier a un stage déjà?
+    -Stage :           1* la date no format, 2* toutes les liasons n'ont pas l'air de ce faire.
+    -Prefecture:       1* Permis bizar de choisir un permi dans cette table
+    -Permis:           1* est ratacher a un stagiaire pourquoi on doit remplir encore des champs nom et premon ? 
+    -Lieux_de_stage    1* sa a l'air de marcher j'ai juste un problem de diff "[warning] Failed to save key "%5B%5BC%5DApp%5CEntity%5
+                                                                                CLieux_de_stage%24code_postal%5D%5B1%5D" (integer)
+                                                                                2018-02-21T09:15:26+01:00 [warning] Failed to save key "%5B%5BC%5DApp%5CEntity%5
+                                                                                CLieux_de_stage%24divers%5D%5B1%5D" (integer)"
+    -Infraction        1* un __toString a faire que veux t'on afficher de stagiaire dans cette table on veux juste rattacher la table mais il veux qu'on met les champs en string rose
+    -Cas               1* Stagiaire_stzges ? 
+    -Bordereau         1* une fatal error
+    -Animateur         1* on peut enlever le champs stages ? 

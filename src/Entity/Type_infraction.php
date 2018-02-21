@@ -58,7 +58,8 @@ class Type_infraction
 
         return $this;
     }
-    public function __toString() {
+    public function __toString() 
+    {
         return $this->types_infractions;
-}
+    }
 }

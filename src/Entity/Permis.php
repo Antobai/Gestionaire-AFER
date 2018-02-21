@@ -62,9 +62,9 @@ class Permis
     /**
      * Get the value of id_permis
      */ 
-    public function getId_permis()
+    public function getIdPermis()
     {
-        return $this->id_permis;
+        return $this->id;
     }
 
     /**
@@ -72,9 +72,9 @@ class Permis
      *
      * @return  self
      */ 
-    public function setId_permis($id_permis)
+    public function setIdPermis($id)
     {
-        $this->id_permis = $id_permis;
+        $this->id = $id;
 
         return $this;
     }

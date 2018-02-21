@@ -26,15 +26,7 @@ class Stage
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $fonction;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
     private $animateur_deux;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $fonction_deux;
     /**
      * @ORM\Column(type="boolean", options={"default":false})
      * @ORM\JoinColumn(nullable=true)
@@ -130,27 +122,6 @@ class Stage
 
         return $this;
     }
-
-    /**
-     * Get the value of fonction
-     */ 
-    public function getFonction()
-    {
-        return $this->fonction;
-    }
-
-    /**
-     * Set the value of fonction
-     *
-     * @return  self
-     */ 
-    public function setFonction($fonction)
-    {
-        $this->fonction = $fonction;
-
-        return $this;
-    }
-
     /**
      * Get the value of animateur_deux
      */ 
@@ -170,27 +141,6 @@ class Stage
 
         return $this;
     }
-
-    /**
-     * Get the value of fonction_deux
-     */ 
-    public function getFonctiondeux()
-    {
-        return $this->fonction_deux;
-    }
-
-    /**
-     * Set the value of fonction_deux
-     *
-     * @return  self
-     */ 
-    public function setFonctiondeux($fonction_deux)
-    {
-        $this->fonction_deux = $fonction_deux;
-
-        return $this;
-    }
-
     /**
      * Get the value of stage_hpo
      */ 

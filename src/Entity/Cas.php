@@ -26,7 +26,7 @@ class Cas
      */
     private $id;
      /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $cas;
     /**
@@ -93,5 +93,8 @@ class Cas
         $this->stagiaires_stages = $stagiaires_stages;
 
         return $this;
+    }
+    public function __toString(){
+        return $this->cas;
     }
 }

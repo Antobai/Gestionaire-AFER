@@ -101,7 +101,7 @@ class Stagiaire
      */
     private $administrations;
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Cas", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Cas", mappedBy="cas")
      * @ORM\JoinColumn(nullable=true)
      */
     private $cas;
@@ -110,11 +110,7 @@ class Stagiaire
      * @ORM\JoinColumn(nullable=true)
      */
     private $infractions;
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stages")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $stages;
+    /*@ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stages"), @ORM\JoinColumn(nullable=true) private $stages;*/
     /**
      * Get the value of id
      */ 
@@ -565,6 +561,7 @@ class Stagiaire
     }
     public function __toString() 
     {
-        return $this->nom . $this->prenom;
+        $stagiaires = $this->nom;
+        return $this->nom . $this->prenom . $this->cas . $this->stagiaires;
     }
 }

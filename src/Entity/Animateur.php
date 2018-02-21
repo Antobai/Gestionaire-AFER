@@ -41,10 +41,6 @@ class Animateur
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $fonction;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
     private $statut;
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -511,6 +507,25 @@ class Animateur
 
         return $this;
     }
+    /**
+     * Get the value of stages
+     */ 
+    public function getStages()
+    {
+        return $this->stages;
+    }
+
+    /**
+     * Set the value of stages
+     *
+     * @return  self
+     */ 
+    public function setStages($stages)
+    {
+        $this->stages = $stages;
+
+        return $this;
+    }
 
     /**
      * Get the value of fonctions
@@ -528,26 +543,6 @@ class Animateur
     public function setFonctions($fonctions)
     {
         $this->fonctions = $fonctions;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of stages
-     */ 
-    public function getStages()
-    {
-        return $this->stages;
-    }
-
-    /**
-     * Set the value of stages
-     *
-     * @return  self
-     */ 
-    public function setStages($stages)
-    {
-        $this->stages = $stages;
 
         return $this;
     }

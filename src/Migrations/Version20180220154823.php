@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180220135457 extends AbstractMigration
+class Version20180220154823 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -16,6 +16,10 @@ class Version20180220135457 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE animateur DROP fonction');
+        $this->addSql('ALTER TABLE fonction DROP FOREIGN KEY FK_900D5BD2E215915');
+        $this->addSql('DROP INDEX UNIQ_900D5BD2E215915 ON fonction');
+        $this->addSql('ALTER TABLE fonction DROP id_animateurs_id');
+        $this->addSql('ALTER TABLE stage DROP fonction, DROP fonction_deux');
     }
 
     public function down(Schema $schema)
@@ -24,5 +28,9 @@ class Version20180220135457 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE animateur ADD fonction VARCHAR(255) DEFAULT NULL COLLATE utf8_unicode_ci');
+        $this->addSql('ALTER TABLE fonction ADD id_animateurs_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE fonction ADD CONSTRAINT FK_900D5BD2E215915 FOREIGN KEY (id_animateurs_id) REFERENCES animateur (id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_900D5BD2E215915 ON fonction (id_animateurs_id)');
+        $this->addSql('ALTER TABLE stage ADD fonction VARCHAR(255) DEFAULT NULL COLLATE utf8_unicode_ci, ADD fonction_deux VARCHAR(255) DEFAULT NULL COLLATE utf8_unicode_ci');
     }
 }
