@@ -39,9 +39,10 @@ class Infraction
      * @ORM\Column(type="string", nullable=true)
      */
     private $cs_assurance;
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire", mappedBy="infractions")
-     * @ORM\JoinColumn(nullable=true)
+    /** 
+     * 
+     * //une infraction à un stagiaire , un stagiare peut faire plusieur infraction
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire")
      */
     private $stagiaires;
     /**
@@ -253,6 +254,6 @@ class Infraction
         return $this;
     }
     public function __toString() {
-        return $this->types_infractions . $this->stagiaires;
+        return $this->types_infractions;
     }
 }

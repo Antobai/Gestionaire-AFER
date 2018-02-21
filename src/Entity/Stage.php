@@ -33,12 +33,12 @@ class Stage
      */
     private $stage_hpo;
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Animateur", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lieux_de_stage", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
      private $lieux_de_stage;
      /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stagiaires")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire", inversedBy="stagiaires_stages")
      * @ORM\JoinColumn(nullable=true)
      */
     private $stagiaires;
@@ -183,6 +183,7 @@ class Stage
     public function __toString() {
         $date = $this->date_de_stage;
        $string = $date->format(DATE_RFC2822);
+       var_dump($stagiaires);
     return $string.$this->lieux_de_stage ;//------------------------------------------------->lieu
 }
 

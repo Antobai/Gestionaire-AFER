@@ -105,12 +105,11 @@ class Stagiaire
      * @ORM\JoinColumn(nullable=true)
      */
     private $cas;
-     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Infraction", mappedBy="stagiaires")
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="stagiaires")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $infractions;
-    /*@ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stages"), @ORM\JoinColumn(nullable=true) private $stages;*/
+    private $stagiaires_stages;
     /**
      * Get the value of id
      */ 
@@ -492,23 +491,6 @@ class Stagiaire
         return $this;
     }
     /**
-     * Get the value of stages
-     */ 
-    public function getStages()
-    {
-        return $this->stages;
-    }
-    /**
-     * Set the value of stages
-     *
-     * @return  self
-     */ 
-    public function setStages($stages)
-    {
-        $this->stages = $stages;
-        return $this;
-    }
-    /**
      * Get the value of type_infractions
      */ 
     public function getTypeInfractions()
@@ -561,7 +543,7 @@ class Stagiaire
     }
     public function __toString() 
     {
-        $stagiaires = $this->nom;
-        return $this->nom . $this->prenom . $this->cas . $this->stagiaires;
+        $stagiaires = $this->nom . $this->prenom;
+        return $this->nom . $this->prenom;
     }
 }

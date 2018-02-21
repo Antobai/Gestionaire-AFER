@@ -98,4 +98,7 @@ class Tribunal
 
         return $this;
     }
+    public function __toString() {
+        return $this->tribunal;
+    }
 }
