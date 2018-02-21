@@ -39,9 +39,10 @@ class Animateur
      */
     private $prenom;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Fonction", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $fonction;
+    private $fonctions;
     /**
      * @ORM\Column(type="string", nullable=true)
      */
@@ -102,11 +103,6 @@ class Animateur
      * @ORM\Column(type="string", nullable=true)
      */
     private $repas;
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Fonction", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $fonctions;
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Stage", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
@@ -193,21 +189,21 @@ class Animateur
     }
 
     /**
-     * Get the value of fonction
+     * Get the value of fonctions
      */ 
-    public function getFonction()
+    public function getFonctions()
     {
-        return $this->fonction;
+        return $this->fonctions;
     }
 
     /**
-     * Set the value of fonction
+     * Set the value of fonctions
      *
      * @return  self
      */ 
-    public function setFonction($fonction)
+    public function setFonctions($fonctions)
     {
-        $this->fonction = $fonction;
+        $this->fonctions = $fonctions;
 
         return $this;
     }
@@ -513,26 +509,6 @@ class Animateur
     }
 
     /**
-     * Get the value of fonctions
-     */ 
-    public function getFonctions()
-    {
-        return $this->fonctions;
-    }
-
-    /**
-     * Set the value of fonctions
-     *
-     * @return  self
-     */ 
-    public function setFonctions($fonctions)
-    {
-        $this->fonctions = $fonctions;
-
-        return $this;
-    }
-
-    /**
      * Get the value of stages
      */ 
     public function getStages()
@@ -550,5 +526,8 @@ class Animateur
         $this->stages = $stages;
 
         return $this;
+    }
+    public function __toString() {
+        return $this->fonctions;
     }
 }

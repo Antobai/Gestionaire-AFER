@@ -51,7 +51,7 @@ class Stagiaire
      * @ORM\Column(type="string", nullable=true)
      */
     private $code_postal;
-        /**
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $commune;
@@ -79,12 +79,11 @@ class Stagiaire
      * @ORM\Column(type="boolean", options={"default":false})
      */
     private $partenaires;
-        /**
+    /**
      * @ORM\Column(type="boolean", options={"default":false})
      */
     private $adherents;
     /**
-     *
      * @ORM\OneToOne(targetEntity="App\Entity\Permis", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      * @ORM\Column(type="integer")
@@ -95,11 +94,6 @@ class Stagiaire
      * @ORM\JoinColumn(nullable=true)
      */
     private $bordereaux;
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Administration", mappedBy="stagiaires")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $administrations;
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Cas", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
@@ -496,26 +490,6 @@ class Stagiaire
     }
 
     /**
-     * Get the value of administrations
-     */ 
-    public function getAdministrations()
-    {
-        return $this->administrations;
-    }
-
-    /**
-     * Set the value of administrations
-     *
-     * @return  self
-     */ 
-    public function setAdministrations($administrations)
-    {
-        $this->administrations = $administrations;
-
-        return $this;
-    }
-
-    /**
      * Get the value of cas
      */ 
     public function getCas()
@@ -615,8 +589,9 @@ class Stagiaire
         return $this;
     }
     public function __toString() {
-    return $this->nom . $this->prenom;
-}
+        return $this->nom ." ". $this->prenom;
+
+    }
 
     /**
      * Get the value of numero_telephone_portable_deux

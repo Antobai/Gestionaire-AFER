@@ -26,15 +26,13 @@ class Cas
      */
     private $id;
      /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $cas;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire_Stage", inversedBy="cas")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $stagiaires_stages;
-
+    private $description;
     /**
      * Get the value of id
      */ 
@@ -76,22 +74,25 @@ class Cas
     }
 
     /**
-     * Get the value of stagiaires_stages
+     * Get the value of description
      */ 
-    public function getStagiairesstages()
+    public function getDescription()
     {
-        return $this->stagiaires_stages;
+        return $this->description;
     }
 
     /**
-     * Set the value of stagiaires_stages
+     * Set the value of description
      *
      * @return  self
      */ 
-    public function setStagiairesstages($stagiaires_stages)
+    public function setDescription($description)
     {
-        $this->stagiaires_stages = $stagiaires_stages;
+        $this->description = $description;
 
         return $this;
+    }
+    public function __toString() {
+        return $this->cas;
     }
 }

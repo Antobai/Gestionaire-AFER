@@ -60,21 +60,21 @@ class Permis
      */
     private $prefectures;
     /**
-     * Get the value of id_permis
+     * Get the value of id
      */ 
-    public function getId_permis()
+    public function getId()
     {
-        return $this->id_permis;
+        return $this->id;
     }
 
     /**
-     * Set the value of id_permis
+     * Set the value of id
      *
      * @return  self
      */ 
-    public function setId_permis($id_permis)
+    public function setId($id)
     {
-        $this->id_permis = $id_permis;
+        $this->id = $id;
 
         return $this;
     }

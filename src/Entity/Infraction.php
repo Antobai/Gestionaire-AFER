@@ -16,7 +16,7 @@ class Infraction
      */
     private $id;
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="time", nullable=true)
      */
     private $heure;
     /**
@@ -27,6 +27,10 @@ class Infraction
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_infraction;
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_tribunal;
     /**
      * @ORM\Column(type="string", nullable=true)
      */
@@ -129,7 +133,28 @@ class Infraction
 
         return $this;
     }
-    
+
+    /**
+     * Get the value of date_tribunal
+     */ 
+    public function getDatetribunal()
+    {
+        return $this->date_tribunal;
+    }
+
+    /**
+     * Set the value of date_tribunal
+     *
+     * @return  self
+     */ 
+    public function setDatetribunal($date_tribunal)
+    {
+        $this->date_tribunal = $date_tribunal;
+
+        return $this;
+    }
+
+
     /**
      * Get the value of cs_permis
      */ 

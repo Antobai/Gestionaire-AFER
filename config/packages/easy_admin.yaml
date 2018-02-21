@@ -1,18 +1,131 @@
 easy_admin:
     entities:
         # List the entity class name you want to manage
-        - App\Entity\Admin
-        - App\Entity\Administration
-        - App\Entity\Animateur
-        - App\Entity\Bordereau
-        - App\Entity\Cas
-        - App\Entity\Fonction
-        - App\Entity\Infraction
-        - App\Entity\Lieux_de_stage
-        - App\Entity\Permis
-        - App\Entity\Prefecture
-        - App\Entity\Stage
-        - App\Entity\Stagiaire_Stage
-        - App\Entity\Stagiaire
-        - App\Entity\Tribunal
-        - App\Entity\Type_infraction
+        Admin:
+          class: 'App\Entity\Admin'
+          list:
+              fields: ['pseudo', 'adresse_email', 'password']
+
+        Animateur:
+          class: 'App\Entity\Animateur'
+          list:
+              fields: ['id', 'civilite', 'nom', 'prenom', 'fontion', 'statut', 'gta', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'region', 'numero_telephone_fixe', 'numero_telephone_portable', 'adresse_email', 'urssaf', 'siret', 'forfait', 'km_ar', 'repas', 'fonctions', 'stages']
+
+        Bordereau:
+          class: 'App\Entity\Bordereau'
+          list:
+            fields: ['id', 'autorite', 'etablissement', 'adresse', 'code_adresse', 'ville', 'prefectures', 'tribunaux', 'stagiaires_stages']
+
+        Cas:
+          class: 'App\Entity\Cas'
+          list:
+            fields: ['id', 'cas', 'description']
+
+        Fonction:
+          class: 'App\Entity\Fonction'
+          list:
+            fields: ['id', 'fonction']
+
+        Infraction:
+          class: 'App\Entity\Infraction'
+          list:
+              fields: ['id', 'heure', 'lieu', 'date_infraction', 'cs_permis', 'cs_assurance', 'stagiaires', 'tribunaux', 'types_infractions']
+          form:
+              fields:
+                  - { property: 'heure', type: 'time' }
+                  - { property: 'lieu', type: 'text' }
+                  - { property: 'date_infraction', type: 'birthday' }
+                  - { property: 'date_tribunal', type: 'birthday' }
+                  - { property: 'cs_permis', type: 'text' }
+                  - { property: 'cs_assurance', type: 'text' }
+                  - { property: 'stagiaires', class: 'App\Entity\Stagiaire' }
+                  - { property: 'tribunaux', class: 'App\Entity\Tribunal' }
+                  - { property: 'types_infractions', class: 'App\Entity\Type_infraction' }
+
+        Lieux_de_stage:
+          class: 'App\Entity\Lieux_de_stage'
+          list:
+            fields: ['id', 'lieux', 'organisme', 'adresse', 'code_postal', 'ville', 'numero_telephone_fixe', 'latitude', 'longitude', 'divers']
+
+        Permis:
+          class: 'App\Entity\Permis'
+          list:
+            fields: ['id', 'civilite', 'nom', 'nom_epouse', 'prenom', 'numero_permis', 'delivre_le', 'stagiaires', 'prefectures']
+          form:
+              fields:
+                  - { property: 'civilite', type: 'text' }
+                  - { property: 'nom', type: 'text' }
+                  - { property: 'nom_epouse', type: 'text' }
+                  - { property: 'prenom', type: 'text' }
+                  - { property: 'numero_permis', type: 'text' }
+                  - { property: 'delivre_le', type: 'birthday' }
+                  - { property: 'stagiaires', class: 'App\Entity\Stagiaire' }
+                  - { property: 'prefectures', class: 'App\Entity\Prefecture' }
+
+        Stage:
+          class: 'App\Entity\Stage'
+          list:
+              fields: ['id', 'date_de_stage', 'animateur', 'fontion', 'animateur_deux', 'fontion_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires']
+          form:
+              fields:
+                  - { property: 'date_de_stage', type: 'birthday' }
+                  - { property: 'animateur', class: 'App\Entity\Animateur' }
+                  - { property: 'fonction', class: 'App\Entity\Fonction' }
+                  - { property: 'animateur_deux', class: 'App\Entity\Animateur' }
+                  - { property: 'fonction_deux', class: 'App\Entity\Fonction' }
+                  - { property: 'stage_hpo' }
+                  - { property: 'lieux_de_stage', class: 'App\Entity\Lieux_de_stage' }
+                  - { property: 'stagiaires', class: 'App\Entity\Stagiaire_Stage' }
+
+        Stagiaire_Stage:
+          class: 'App\Entity\Stagiaire_Stage'
+          list:
+              fields: ['id', 'stagiaires', 'stages', 'paye', 'prix', 'cas', 'bordereaux', 'envoi_inscription', 'envoi_convocation', 'courrier', 'email', 'alerte', 'bulletin_inscription', 'cni', 'copie_permis', 'releve_integral', 'decision_judiciaire', 'n48', 'observations']
+
+        Stagiaire:
+          class: 'App\Entity\Stagiaire'
+          list:
+              fields: ['id', 'genre', 'nom', 'nom_epouse', 'prenom', 'date_de_naissance', 'lieu_de_naissance', 'pays', 'adresse', 'code_postal', 'commune', 'numero_telephone_fixe', 'numero_telephone_portable', 'numero_telephone_portable_deux', 'adresse_email', 'carte_avantage_jeunes', 'partenaires', 'adherents', 'permis', 'bordereaux', 'cas', 'infractions', 'stages']
+          form:
+              fields:
+                  - { property: 'genre', type: 'text' }
+                  - { property: 'nom', type: 'text' }
+                  - { property: 'nom_epouse', type: 'text' }
+                  - { property: 'prenom', type: 'text' }
+                  - { property: 'date_de_naissance', type: 'birthday' }
+                  - { property: 'lieu_de_naissance', type: 'text' }
+                  - { property: 'pays', type: 'text' }
+                  - { property: 'adresse', type: 'text' }
+                  - { property: 'code_postal', type: 'text' }
+                  - { property: 'commune', type: 'text' }
+                  - { property: 'numero_telephone_fixe', type: 'integer' }
+                  - { property: 'numero_telephone_portable', type: 'integer' }
+                  - { property: 'numero_telephone_portable_deux', type: 'integer' }
+                  - { property: 'adresse_email', type: 'text' }
+                  - { property: 'carte_avantage_jeunes' }
+                  - { property: 'partenaires' }
+                  - { property: 'adherents' }
+                  - { property: 'permis', class: 'App\Entity\Permis' }
+                  - { property: 'bordereaux', class: 'App\Entity\Bordereau' }
+                  - { property: 'cas', class: 'App\Entity\Cas' }
+                  - { property: 'infractions', class: 'App\Entity\infraction' }
+                  - { property: 'stages', class: 'App\Entity\Stagiaire_Stage' }
+
+        Tribunal:
+          class: 'App\Entity\Tribunal'
+          list:
+            fields: ['id', 'tribunal', 'numero_parquet']
+
+        Type_infraction:
+          class: 'App\Entity\Type_infraction'
+          list:
+            fields: ['id', 'types_infractions']
+
+
+    site_name: "Afer"
+
+    design:
+        form_theme: 'vertical'
+        assets:
+            favicon:
+                path: 'backend/favicon.png'

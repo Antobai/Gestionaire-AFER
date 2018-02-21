@@ -20,10 +20,6 @@ class Tribunal
      */
     private $tribunal;
     /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $date_tribunal;
-    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $numero_parquet;
@@ -68,26 +64,6 @@ class Tribunal
     }
 
     /**
-     * Get the value of date_tribunal
-     */ 
-    public function getDatetribunal()
-    {
-        return $this->date_tribunal;
-    }
-
-    /**
-     * Set the value of date_tribunal
-     *
-     * @return  self
-     */ 
-    public function setDatetribunal($date_tribunal)
-    {
-        $this->date_tribunal = $date_tribunal;
-
-        return $this;
-    }
-
-    /**
      * Get the value of numero_parquet
      */ 
     public function getNumeroparquet()
@@ -125,5 +101,8 @@ class Tribunal
         $this->infractions = $infractions;
 
         return $this;
+    }
+    public function __toString() {
+        return $this->tribunal;
     }
 }

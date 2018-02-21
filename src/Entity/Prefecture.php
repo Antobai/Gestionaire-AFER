@@ -31,7 +31,7 @@ class Prefecture
     private $prefecture;
    /** 
     * @ORM\OneToOne(targetEntity="App\Entity\Permis", inversedBy="prefectures")
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(nullable=true)
     */
     private $permis;
     /**
@@ -92,5 +92,8 @@ class Prefecture
         $this->permis = $permis;
 
         return $this;
+    }
+    public function __toString() {
+        return $this->prefecture;
     }
 }

@@ -41,7 +41,7 @@ class Stage
      */
     private $stage_hpo;
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Animateur", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\Lieux_de_stage", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
      private $lieux_de_stage;
@@ -172,26 +172,6 @@ class Stage
     }
 
     /**
-     * Get the value of fonction_deux
-     */ 
-    public function getFonctiondeux()
-    {
-        return $this->fonction_deux;
-    }
-
-    /**
-     * Set the value of fonction_deux
-     *
-     * @return  self
-     */ 
-    public function setFonctiondeux($fonction_deux)
-    {
-        $this->fonction_deux = $fonction_deux;
-
-        return $this;
-    }
-
-    /**
      * Get the value of stage_hpo
      */ 
     public function getStagehpo()
@@ -231,9 +211,9 @@ class Stage
           return $this;
      }
     public function __toString() {
-        $date = $this->date_de_stage;
-       $string = $date->format(DATE_RFC2822);
-    return $string.$this->lieux_de_stage ;//------------------------------------------------->lieu
+        /*$date = $this->date_de_stage;
+       $string = $date->format(DATE_RFC2822);*/
+    return " " ;//------------------------------------------------->lieu
 }
 
     /**
