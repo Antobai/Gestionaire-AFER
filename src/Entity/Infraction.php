@@ -255,25 +255,6 @@ class Infraction
 
         return $this;
     }
-    /**
-     * Get the value of date_tribunal
-     */ 
-    public function getDateTribunal()
-    {
-        return $this->date_tribunal;
-    }
-
-    /**
-     * Set the value of date_tribunal
-     *
-     * @return  self
-     */ 
-    public function setDateTribunal($date_tribunal)
-    {
-        $this->date_tribunal = $date_tribunal;
-
-        return $this;
-    }
     public function __toString() {
         return $this->types_infractions;
     }
