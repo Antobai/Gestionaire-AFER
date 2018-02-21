@@ -62,10 +62,6 @@ class Tribunal
 
         return $this;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 538fddbfb81b11ae8b52124ccee05b72e466981f
     /**
      * Get the value of numero_parquet
      */ 
