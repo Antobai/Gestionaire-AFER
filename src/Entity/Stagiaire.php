@@ -100,7 +100,7 @@ class Stagiaire
      */
     private $cas;
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="stagiaires")
+     * @ORM\OneToMany(targetEntity="App\Entity\Infraction", mappedBy="stagiaires")
      * @ORM\JoinColumn(nullable=true)
      */
     private $infractions;

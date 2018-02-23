@@ -40,7 +40,7 @@ class Infraction
      */
     private $cs_assurance;
     /** 
-     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire" , inversedBy="infractions")
      */
     private $stagiaires;
     /**

@@ -100,10 +100,11 @@ class Animateur
      */
     private $repas;
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="animateur")
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="animateur_deux")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $stages;
+    private $animateurs;
     /**
      * Get the value of id
      */ 
@@ -484,26 +485,6 @@ class Animateur
         return $this;
     }
     /**
-     * Get the value of stages
-     */ 
-    public function getStages()
-    {
-        return $this->stages;
-    }
-
-    /**
-     * Set the value of stages
-     *
-     * @return  self
-     */ 
-    public function setStages($stages)
-    {
-        $this->stages = $stages;
-
-        return $this;
-    }
-
-    /**
      * Get the value of fonctions
      */ 
     public function getFonctions()
@@ -523,6 +504,27 @@ class Animateur
         return $this;
     }
     public function __toString() {
-        return $this->fonctions;
+        $animateurs = $this->nom . " "  . $this->prenom;
+        return $this->fonctions . $this->animateurs;
+    }
+
+    /**
+     * Get the value of animateurs
+     */ 
+    public function getAnimateurs()
+    {
+        return $this->animateurs;
+    }
+
+    /**
+     * Set the value of animateurs
+     *
+     * @return self
+     */ 
+    public function setAnimateurs($animateurs)
+    {
+        $this->animateurs = $animateurs;
+
+        return $this;
     }
 }

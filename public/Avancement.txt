@@ -4,7 +4,7 @@ ENTITY FINI
     -Fonction
     -Admin
     -Infraction
-    -Stage           'PM'
+    -Stage           'PM'        liaison Lieux de stage & stagiaires.
     -Stagiaire_Stage 'PM'
     -Stagiaire       'PM'
 

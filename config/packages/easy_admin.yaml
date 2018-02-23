@@ -106,7 +106,7 @@ easy_admin:
                   - { property: 'permis', class: 'App\Entity\Permis' }
                   - { property: 'bordereaux', class: 'App\Entity\Bordereau' }
                   - { property: 'cas', class: 'App\Entity\Cas' }
-                  - { property: 'infractions', class: 'App\Entity\Stage' }
+                  - { property: 'infractions', class: 'App\Entity\Infraction' }
                   - { property: 'stages', class: 'App\Entity\Stagiaire_Stage' }
 
         Tribunal:

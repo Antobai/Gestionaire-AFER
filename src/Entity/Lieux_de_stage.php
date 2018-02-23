@@ -55,7 +55,7 @@ class Lieux_de_stage
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="lieux_de_stage")
     */
-    private $stages; // Notez le « s », une annonce est liée à plusieurs candidatures
+    private $stages; 
 
 
     /**

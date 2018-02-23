@@ -56,7 +56,7 @@ class Bordereau
      */
     private $tribunaux;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire_Stage", inversedBy="bordereaux")
+     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="bordereaux")
      * @ORM\JoinColumn(nullable=true)
      */
     private $stagiaires_stages;

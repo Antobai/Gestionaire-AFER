@@ -20,10 +20,12 @@ class Stage
      */
     private $date_de_stage;
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur", inversedBy="animateurs")
      * @ORM\Column(type="string", nullable=true)
      */
     private $animateur;
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur", inversedBy="animateurs")
      * @ORM\Column(type="string", nullable=true)
      */
     private $animateur_deux;
@@ -33,7 +35,7 @@ class Stage
      */
     private $stage_hpo;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Lieux_de_stage", inversedBy="stage")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lieux_de_stage", inversedBy="stages")
      */
     private $lieux_de_stage;
      /**
@@ -212,7 +214,7 @@ class Stage
 
     public function __toString() {
       if(isset($this->lieux_de_stage)) {
-        return $this->lieux_de_stage->__toString();
+        return $this->lieux_de_stage->__toString() . $this->animateurs->__toString();;
       }
       else {
         return "Stage sans lieu indiqué";
