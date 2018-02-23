@@ -9,7 +9,7 @@ easy_admin:
         Animateur:
           class: 'App\Entity\Animateur'
           list:
-              fields: ['id', 'civilite', 'nom', 'prenom', 'fontion', 'statut', 'gta', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'region', 'numero_telephone_fixe', 'numero_telephone_portable', 'adresse_email', 'urssaf', 'siret', 'forfait', 'km_ar', 'repas', 'fonctions', 'stages']
+              fields: ['id', 'civilite', 'nom', 'prenom', 'fontion', 'statut', 'gta', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'region', 'numero_telephone_fixe', 'numero_telephone_portable', 'adresse_email', 'urssaf', 'siret', 'forfait', 'km_ar', 'repas', 'fonctions']
 
         Bordereau:
           class: 'App\Entity\Bordereau'

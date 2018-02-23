@@ -21,12 +21,12 @@ class Stage
     private $date_de_stage;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Animateur", inversedBy="animateurs")
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $animateur;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur", inversedBy="animateurs")
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur", inversedBy="animateurs_deux")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $animateur_deux;
     /**

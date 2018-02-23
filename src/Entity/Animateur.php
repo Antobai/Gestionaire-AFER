@@ -101,10 +101,14 @@ class Animateur
     private $repas;
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="animateur")
-     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="animateur_deux")
      * @ORM\JoinColumn(nullable=true)
      */
     private $animateurs;
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="animateur_deux")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $animateurs_deux;
     /**
      * Get the value of id
      */ 
@@ -484,28 +488,11 @@ class Animateur
 
         return $this;
     }
-    /**
-     * Get the value of fonctions
-     */ 
-    public function getFonctions()
-    {
-        return $this->fonctions;
-    }
-
-    /**
-     * Set the value of fonctions
-     *
-     * @return  self
-     */ 
-    public function setFonctions($fonctions)
-    {
-        $this->fonctions = $fonctions;
-
-        return $this;
-    }
     public function __toString() {
         $animateurs = $this->nom . " "  . $this->prenom;
-        return $this->fonctions . $this->animateurs;
+        //var_dump($animateurs);
+        return $animateurs;
+        
     }
 
     /**
