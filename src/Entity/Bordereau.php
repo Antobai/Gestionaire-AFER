@@ -240,4 +240,12 @@ class Bordereau
 
         return $this;
     }
+
+    public function __toString(){
+        $code_postal = strval($this->code_adresse);
+        var_dump($code_postal);
+        $bordereaux = $this->autorite . $this->etablissement . $this->adresse .  $this->ville ;
+        //var_dump($bordereaux);
+        return $bordereaux;
+    }
 }

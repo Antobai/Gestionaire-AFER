@@ -100,6 +100,12 @@ class Animateur
      */
     private $repas;
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Fonction"
+     * )
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $fonctions;
+    /**
      * Get the value of id
      */ 
     public function getId()
@@ -521,6 +527,26 @@ class Animateur
     public function setStages($stages)
     {
         $this->stages = $stages;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fonctions
+     */ 
+    public function getFonctions()
+    {
+        return $this->fonctions;
+    }
+
+    /**
+     * Set the value of fonctions
+     *
+     * @return self
+     */ 
+    public function setFonctions($fonctions)
+    {
+        $this->fonctions = $fonctions;
 
         return $this;
     }
