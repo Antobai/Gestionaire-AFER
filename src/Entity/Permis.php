@@ -55,7 +55,7 @@ class Permis
      */
     private $stagiaires;
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Prefecture", mappedBy="permis")
+     * @ORM\OneToOne(targetEntity="App\Entity\Prefecture", mappedBy="permis")
      * @ORM\JoinColumn(nullable=true)
      */
     private $prefectures;

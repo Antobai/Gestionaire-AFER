@@ -20,12 +20,12 @@ class Stage
      */
     private $date_de_stage;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur", inversedBy="animateurs")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur")
      * @ORM\JoinColumn(nullable=true)
      */
     private $animateur;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur", inversedBy="animateurs_deux")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animateur")
      * @ORM\JoinColumn(nullable=true)
      */
     private $animateur_deux;
@@ -116,29 +116,6 @@ class Stage
         return $this;
     }
 
-    /**
-     * Get the value of Animateur Deux
-     *
-     * @return mixed
-     */
-    public function getAnimateurDeux()
-    {
-        return $this->animateur_deux;
-    }
-
-    /**
-     * Set the value of Animateur Deux
-     *
-     * @param mixed animateur_deux
-     *
-     * @return self
-     */
-    public function setAnimateurDeux($animateur_deux)
-    {
-        $this->animateur_deux = $animateur_deux;
-
-        return $this;
-    }
 
     /**
      * Get the value of Stage Hpo
@@ -211,6 +188,25 @@ class Stage
 
         return $this;
     }
+    /**
+     * Get the value of animateur_deux
+     */ 
+    public function getAnimateurDeux()
+    {
+        return $this->animateur_deux;
+    }
+
+    /**
+     * Set the value of animateur_deux
+     *
+     * @return self
+     */ 
+    public function setAnimateurDeux($animateur_deux)
+    {
+        $this->animateur_deux = $animateur_deux;
+
+        return $this;
+    }
 
     public function __toString() {
       if(isset($this->lieux_de_stage)) {
@@ -221,5 +217,4 @@ class Stage
       }
 
     }
-
 }

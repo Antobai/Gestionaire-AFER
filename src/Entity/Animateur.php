@@ -100,16 +100,6 @@ class Animateur
      */
     private $repas;
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="animateur")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $animateurs;
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="animateur_deux")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $animateurs_deux;
-    /**
      * Get the value of id
      */ 
     public function getId()
@@ -511,6 +501,26 @@ class Animateur
     public function setAnimateurs($animateurs)
     {
         $this->animateurs = $animateurs;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of stages
+     */ 
+    public function getStages()
+    {
+        return $this->stages;
+    }
+
+    /**
+     * Set the value of stages
+     *
+     * @return self
+     */ 
+    public function setStages($stages)
+    {
+        $this->stages = $stages;
 
         return $this;
     }
