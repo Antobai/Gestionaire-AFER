@@ -40,13 +40,11 @@ class Infraction
      */
     private $cs_assurance;
     /** 
-     * 
-     * //une infraction à un stagiaire , un stagiare peut faire plusieur infraction
      * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire")
      */
     private $stagiaires;
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Tribunal", mappedBy="infractions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tribunal", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $tribunaux;

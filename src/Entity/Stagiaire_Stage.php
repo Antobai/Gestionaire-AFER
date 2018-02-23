@@ -49,7 +49,7 @@ class Stagiaire_Stage
      */
     private $cas;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bordereau")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bordereau", inversedBy="bordereaux")
      * @ORM\JoinColumn(nullable=true)
      */
     private $bordereaux;

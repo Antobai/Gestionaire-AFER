@@ -16,7 +16,7 @@ class Stage
      */
     private $id;
      /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date")
      */
     private $date_de_stage;
     /**
@@ -41,10 +41,7 @@ class Stage
      * @ORM\JoinColumn(nullable=true)
      */
     private $stagiaires;
-
-
-
-
+    
     /**
      * Get the value of Id
      *

@@ -65,14 +65,12 @@ easy_admin:
         Stage:
           class: 'App\Entity\Stage'
           list:
-              fields: ['id', 'date_de_stage', 'animateur', 'fontion', 'animateur_deux', 'fontion_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires']
+              fields: ['id', 'date_de_stage', 'animateur', 'animateur_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires']
           form:
               fields:
                   - { property: 'date_de_stage', type: 'birthday' }
                   - { property: 'animateur', class: 'App\Entity\Animateur' }
-                  - { property: 'fonction', class: 'App\Entity\Fonction' }
                   - { property: 'animateur_deux', class: 'App\Entity\Animateur' }
-                  - { property: 'fonction_deux', class: 'App\Entity\Fonction' }
                   - { property: 'stage_hpo' }
                   - { property: 'lieux_de_stage', class: 'App\Entity\Lieux_de_stage' }
                   - { property: 'stagiaires', class: 'App\Entity\Stagiaire_Stage' }
@@ -108,7 +106,7 @@ easy_admin:
                   - { property: 'permis', class: 'App\Entity\Permis' }
                   - { property: 'bordereaux', class: 'App\Entity\Bordereau' }
                   - { property: 'cas', class: 'App\Entity\Cas' }
-                  - { property: 'infractions', class: 'App\Entity\infraction' }
+                  - { property: 'infractions', class: 'App\Entity\Stage' }
                   - { property: 'stages', class: 'App\Entity\Stagiaire_Stage' }
 
         Tribunal:

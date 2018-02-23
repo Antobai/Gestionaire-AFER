@@ -80,24 +80,6 @@ class Tribunal
 
         return $this;
     }
-    /**
-     * Get the value of infractions
-     */ 
-    public function getInfractions()
-    {
-        return $this->infractions;
-    }
-    /**
-     * Set the value of infractions
-     *
-     * @return  self
-     */ 
-    public function setInfractions($infractions)
-    {
-        $this->infractions = $infractions;
-
-        return $this;
-    }
     public function __toString() {
         return $this->tribunal;
     }
