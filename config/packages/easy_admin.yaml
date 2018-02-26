@@ -5,26 +5,78 @@ easy_admin:
           class: 'App\Entity\Admin'
           list:
               fields: ['pseudo', 'adresse_email', 'password']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - pseudo
+                  - adresse_email
+                  - password
 
         Animateur:
           class: 'App\Entity\Animateur'
           list:
-              fields: ['id', 'civilite', 'nom', 'prenom', 'fontion', 'statut', 'gta', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'region', 'numero_telephone_fixe', 'numero_telephone_portable', 'adresse_email', 'urssaf', 'siret', 'forfait', 'km_ar', 'repas', 'fonctions']
+              fields: ['id', 'civilite', 'nom', 'prenom', 'fonctions', 'statut', 'gta', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'region', 'numero_telephone_fixe', 'numero_telephone_portable', 'adresse_email', 'urssaf', 'siret', 'forfait', 'km_ar', 'repas']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - civilite
+                  - nom
+                  - prenom
+                  - fonctions
+                  - statut
+                  - gta
+                  - raison_sociale
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse' }
+                  - adresse
+                  - code_postal
+                  - ville
+                  - region
+                  - { type: 'group', label: 'Contact information', icon: 'phone',
+                        css_class: 'col-sm-6' }
+                  - numero_telephone_fixe
+                  - numero_telephone_portable
+                  - adresse_email
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration' }
+                  - urssaf
+                  - siret
+                  - forfait
+                  - km_ar
+                  - repas
 
         Bordereau:
           class: 'App\Entity\Bordereau'
           list:
             fields: ['id', 'autorite', 'etablissement', 'adresse', 'code_adresse', 'ville', 'prefectures', 'tribunaux', 'stagiaires_stages']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - autorite
+                  - etablissement
+                  - adresse
+                  - code_adresse
+                  - ville
+                  - prefectures
+                  - tribunaux
+                  - stagiaires_stages
 
         Cas:
           class: 'App\Entity\Cas'
           list:
             fields: ['id', 'cas', 'description']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - cas
+                  - description
 
         Fonction:
           class: 'App\Entity\Fonction'
           list:
             fields: ['id', 'fonction']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - fonction
 
         Infraction:
           class: 'App\Entity\Infraction'
@@ -32,6 +84,7 @@ easy_admin:
               fields: ['id', 'heure', 'lieu', 'date_infraction', 'cs_permis', 'cs_assurance', 'stagiaires', 'tribunaux', 'types_infractions']
           form:
               fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
                   - { property: 'heure', type: 'time' }
                   - { property: 'lieu', type: 'text' }
                   - { property: 'date_infraction', type: 'birthday' }
@@ -46,6 +99,23 @@ easy_admin:
           class: 'App\Entity\Lieux_de_stage'
           list:
             fields: ['id', 'lieux', 'organisme', 'adresse', 'code_postal', 'ville', 'numero_telephone_fixe', 'latitude', 'longitude', 'divers']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - lieux
+                  - organisme
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse' }
+                  - adresse
+                  - code_postal
+                  - ville
+                  - { type: 'group', label: 'Contact information', icon: 'phone',
+                        css_class: 'col-sm-6' }
+                  - numero_telephone_fixe
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Coordonnées' }
+                  - latitude
+                  - longitude
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Autres' }
+                  - divers
 
         Permis:
           class: 'App\Entity\Permis'
@@ -53,6 +123,7 @@ easy_admin:
             fields: ['id', 'civilite', 'nom', 'nom_epouse', 'prenom', 'numero_permis', 'delivre_le', 'stagiaires', 'prefectures']
           form:
               fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
                   - { property: 'civilite', type: 'text' }
                   - { property: 'nom', type: 'text' }
                   - { property: 'nom_epouse', type: 'text' }
@@ -68,6 +139,7 @@ easy_admin:
               fields: ['id', 'date_de_stage', 'animateur', 'animateur_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires']
           form:
               fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
                   - { property: 'date_de_stage', type: 'birthday' }
                   - { property: 'animateur', class: 'App\Entity\Animateur' }
                   - { property: 'animateur_deux', class: 'App\Entity\Animateur' }
@@ -79,6 +151,28 @@ easy_admin:
           class: 'App\Entity\Stagiaire_Stage'
           list:
               fields: ['id', 'stagiaires', 'stages', 'paye', 'prix', 'cas', 'bordereaux', 'envoi_inscription', 'envoi_convocation', 'courrier', 'email', 'alerte', 'bulletin_inscription', 'cni', 'copie_permis', 'releve_integral', 'decision_judiciaire', 'n48', 'observations']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - stagiaires
+                  - stages
+                  - paye
+                  - prix
+                  - cas
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration' }
+                  - bordereaux
+                  - envoi_inscription
+                  - envoi_convocation
+                  - courrier
+                  - email
+                  - alerte
+                  - bulletin_inscription
+                  - cni
+                  - copie_permis
+                  - releve_integral
+                  - decision_judiciaire
+                  - n48
+                  - observations
 
         Stagiaire:
           class: 'App\Entity\Stagiaire'
@@ -86,6 +180,7 @@ easy_admin:
               fields: ['id', 'genre', 'nom', 'nom_epouse', 'prenom', 'date_de_naissance', 'lieu_de_naissance', 'pays', 'adresse', 'code_postal', 'commune', 'numero_telephone_fixe', 'numero_telephone_portable', 'numero_telephone_portable_deux', 'adresse_email', 'carte_avantage_jeunes', 'partenaires', 'adherents', 'permis', 'bordereaux', 'cas', 'infractions', 'stages']
           form:
               fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
                   - { property: 'genre', type: 'text' }
                   - { property: 'nom', type: 'text' }
                   - { property: 'nom_epouse', type: 'text' }
@@ -93,13 +188,17 @@ easy_admin:
                   - { property: 'date_de_naissance', type: 'birthday' }
                   - { property: 'lieu_de_naissance', type: 'text' }
                   - { property: 'pays', type: 'text' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse' }
                   - { property: 'adresse', type: 'text' }
                   - { property: 'code_postal', type: 'text' }
                   - { property: 'commune', type: 'text' }
+                  - { type: 'group', label: 'Contact information', icon: 'phone',
+                        css_class: 'col-sm-6' }
                   - { property: 'numero_telephone_fixe', type: 'integer' }
                   - { property: 'numero_telephone_portable', type: 'integer' }
                   - { property: 'numero_telephone_portable_deux', type: 'integer' }
                   - { property: 'adresse_email', type: 'text' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration' }
                   - { property: 'carte_avantage_jeunes' }
                   - { property: 'partenaires' }
                   - { property: 'adherents' }
@@ -113,11 +212,20 @@ easy_admin:
           class: 'App\Entity\Tribunal'
           list:
             fields: ['id', 'tribunal', 'numero_parquet']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - tribunal
+                  - numero_parquet
 
         Type_infraction:
           class: 'App\Entity\Type_infraction'
           list:
             fields: ['id', 'types_infractions']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - types_infractions
 
 
     site_name: "Afer"

@@ -21,19 +21,5 @@ ENTITY AFINIR : PARCe-QUE
     -Animateur         1* on peut enlever le champs stages ? : fonction ne marche plus
     -administrateur    1* encore un string mais 'vert cette fois ci' 
 
-
-
-
-    mes changements 
-             dans infractions stagiaires L43 
-                    /** ancien
-                    * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire", mappedBy="infractions")
-                    * @ORM\JoinColumn(nullable=true)
-                    */
-                private $stagiaires;
-            dans stagiare infraction L108
-                 /**
-                * @ORM\OneToMany(targetEntity="App\Entity\Infraction", mappedBy="stagiaires")
-                * @ORM\JoinColumn(nullable=true)
-                */
-                private $infractions;
+---------------------------------------------------------------------------------------------------------------
+quand j'enregistre un stagiaire dans sa section administration il faudrais desactiver les champs de saisi bordereau, cas, infraction,stages et les remplacer par des champs juste visuel des dernier informations de ce stagiaire

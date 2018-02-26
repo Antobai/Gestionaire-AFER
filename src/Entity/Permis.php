@@ -25,22 +25,6 @@ class Permis
      * @ORM\Column(type="integer")
      */
     private $id;
-     /**
-     * @ORM\Column(type="string")
-     */
-    private $civilite;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $nom;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $nom_epouse;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $prenom;
     /**
      * @ORM\Column(type="string", nullable=true)
      */
@@ -75,86 +59,6 @@ class Permis
     public function setIdPermis($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of civilite
-     */ 
-    public function getCivilite()
-    {
-        return $this->civilite;
-    }
-
-    /**
-     * Set the value of civilite
-     *
-     * @return  self
-     */ 
-    public function setCivilite($civilite)
-    {
-        $this->civilite = $civilite;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of nom
-     */ 
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set the value of nom
-     *
-     * @return  self
-     */ 
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of nom_epouse
-     */ 
-    public function getNomepouse()
-    {
-        return $this->nom_epouse;
-    }
-
-    /**
-     * Set the value of nom_epouse
-     *
-     * @return  self
-     */ 
-    public function setNomepouse($nom_epouse)
-    {
-        $this->nom_epouse = $nom_epouse;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of prenom
-     */ 
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * Set the value of prenom
-     *
-     * @return  self
-     */ 
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
 
         return $this;
     }

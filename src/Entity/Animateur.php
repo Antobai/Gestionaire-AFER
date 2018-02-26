@@ -39,7 +39,7 @@ class Animateur
      */
     private $prenom;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Fonction", cascade={"persist"})
+     * @ORM\Column(type="string", nullable=true)
      * @ORM\JoinColumn(nullable=true)
      */
     private $statut;
@@ -91,7 +91,7 @@ class Animateur
      * @ORM\Column(type="string", nullable=true)
      */
     private $forfait;
-        /**
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $km_ar;
@@ -100,9 +100,7 @@ class Animateur
      */
     private $repas;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Fonction"
-     * )
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Fonction", inversedBy="fonction")
      */
     private $fonctions;
     /**
@@ -486,7 +484,6 @@ class Animateur
     }
     public function __toString() {
         $animateurs = $this->nom . " "  . $this->prenom;
-        //var_dump($animateurs);
         return $animateurs;
         
     }
