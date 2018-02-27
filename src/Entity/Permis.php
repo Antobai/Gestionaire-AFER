@@ -43,25 +43,6 @@ class Permis
      * @ORM\JoinColumn(nullable=true)
      */
     private $prefectures;
-    /**
-     * Get the value of id
-     */ 
-    public function getIdPermis()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setIdPermis($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * Get the value of numero_permis
@@ -140,6 +121,26 @@ class Permis
     public function setPrefectures($prefectures)
     {
         $this->prefectures = $prefectures;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

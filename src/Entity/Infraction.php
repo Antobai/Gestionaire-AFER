@@ -254,6 +254,6 @@ class Infraction
         return $this;
     }
     public function __toString() {
-        return $this->types_infractions;
+        return $this->types_infractions . $this->stagiaires;
     }
 }

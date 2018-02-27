@@ -124,10 +124,6 @@ easy_admin:
           form:
               fields:
                   - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - { property: 'civilite', type: 'text' }
-                  - { property: 'nom', type: 'text' }
-                  - { property: 'nom_epouse', type: 'text' }
-                  - { property: 'prenom', type: 'text' }
                   - { property: 'numero_permis', type: 'text' }
                   - { property: 'delivre_le', type: 'birthday' }
                   - { property: 'stagiaires', class: 'App\Entity\Stagiaire' }
