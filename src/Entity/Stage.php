@@ -210,7 +210,7 @@ class Stage
 
     public function __toString() {
       if(isset($this->lieux_de_stage)) {
-        return $this->lieux_de_stage->__toString() . $this->animateurs->__toString();;
+        return $this->lieux_de_stage->__toString() . $this->animateurs->__toString();
       }
       else {
         return "Stage sans lieu indiqué";
