@@ -1,162 +1,107 @@
 easy_admin:
     entities:
         # List the entity class name you want to manage
-        Admin:
-          class: 'App\Entity\Admin'
+        Stage:
+          class: 'App\Entity\Stage'
           list:
-              fields: ['pseudo', 'adresse_email', 'password']
+              fields: ['numero_stage', 'date_de_stage', 'animateur', 'animateur_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - pseudo
-                  - adresse_email
-                  - password
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - { property: 'numero_stage', type: 'text' }
+                  - { property: 'date_de_stage', type: 'date' }
+                  - { property: 'animateur', class: 'App\Entity\Animateur' }
+                  - { property: 'animateur_deux', class: 'App\Entity\Animateur' }
+                  - { property: 'stage_hpo' }
+                  - { property: 'lieux_de_stage', class: 'App\Entity\Lieux_de_stage' }
 
-        Animateur:
-          class: 'App\Entity\Animateur'
+        Stagiaire:
+          class: 'App\Entity\Stagiaire'
           list:
-              fields: ['id', 'civilite', 'nom', 'prenom', 'fontions', 'statut', 'gta', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'region', 'numero_telephone_fixe', 'numero_telephone_portable', 'adresse_email', 'urssaf', 'siret', 'forfait', 'km_ar', 'repas']
+              fields: ['genre', 'nom', 'nom_epouse', 'prenom', 'date_de_naissance', 'lieu_de_naissance', 'pays', 'adresse', 'code_postal', 'commune', 'numero_telephone_fixe', 'numero_telephone_portable', 'numero_telephone_portable_deux', 'adresse_email', 'carte_avantage_jeunes', 'partenaires', 'adherents', 'cas', 'infractions', 'stages']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - civilite
-                  - nom
-                  - prenom
-                  - fonctions
-                  - statut
-                  - gta
-                  - raison_sociale
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse' }
-                  - adresse
-                  - code_postal
-                  - ville
-                  - region
-                  - { type: 'group', label: 'Contact information', icon: 'phone',
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - { property: 'genre', type: 'text' }
+                  - { property: 'nom', type: 'text' }
+                  - { property: 'nom_epouse', type: 'text' }
+                  - { property: 'prenom', type: 'text' }
+                  - { property: 'date_de_naissance', type: 'birthday' }
+                  - { property: 'lieu_de_naissance', type: 'text' }
+                  - { property: 'pays', type: 'text' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse', icon: 'location-arrow' }
+                  - { property: 'adresse', type: 'text' }
+                  - { property: 'code_postal', type: 'text' }
+                  - { property: 'commune', type: 'text' }
+                  - { type: 'group', label: 'Contact', icon: 'phone',
                         css_class: 'col-sm-6' }
-                  - numero_telephone_fixe
-                  - numero_telephone_portable
-                  - adresse_email
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration' }
-                  - urssaf
-                  - siret
-                  - forfait
-                  - km_ar
-                  - repas
-
-        Bordereau:
-          class: 'App\Entity\Bordereau'
-          list:
-            fields: ['id', 'autorite', 'etablissement', 'adresse', 'code_adresse', 'ville', 'prefectures', 'tribunaux', 'stagiaires_stages']
-          form:
-              fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - autorite
-                  - etablissement
-                  - adresse
-                  - code_adresse
-                  - ville
-                  - prefectures
-                  - tribunaux
-                  - stagiaires_stages
-
-        Cas:
-          class: 'App\Entity\Cas'
-          list:
-            fields: ['id', 'cas', 'description']
-          form:
-              fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - cas
-                  - description
-
-        Fonction:
-          class: 'App\Entity\Fonction'
-          list:
-            fields: ['id', 'fonction']
-          form:
-              fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - fonction
-
+                  - { property: 'numero_telephone_fixe', type: 'text' }
+                  - { property: 'numero_telephone_portable', type: 'text' }
+                  - { property: 'numero_telephone_portable_deux', type: 'text' }
+                  - { property: 'adresse_email', type: 'text' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration', icon: 'book' }
+                  - { property: 'carte_avantage_jeunes' }
+                  - { property: 'partenaires' }
+                  - { property: 'adherents' }
+                  - { property: 'cas', class: 'App\Entity\Cas' }
+                  
         Infraction:
           class: 'App\Entity\Infraction'
           list:
-              fields: ['id', 'heure', 'lieu', 'date_infraction', 'cs_permis', 'cs_assurance', 'stagiaires', 'tribunaux', 'types_infractions']
+              fields: ['lieu', 'date_infraction', 'heure', 'date_tribunal', 'cs_permis', 'cs_assurance', 'stagiaires', 'tribunaux', 'types_infractions']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - { property: 'heure', type: 'time' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
                   - { property: 'lieu', type: 'text' }
-                  - { property: 'date_infraction', type: 'birthday' }
-                  - { property: 'date_tribunal', type: 'birthday' }
+                  - { property: 'date_infraction', type: 'date' }
+                  - { property: 'heure', type: 'time' }
+                  - { property: 'date_tribunal', type: 'date' }
                   - { property: 'cs_permis', type: 'text' }
                   - { property: 'cs_assurance', type: 'text' }
                   - { property: 'stagiaires', class: 'App\Entity\Stagiaire' }
                   - { property: 'tribunaux', class: 'App\Entity\Tribunal' }
                   - { property: 'types_infractions', class: 'App\Entity\Type_infraction' }
 
-        Lieux_de_stage:
-          class: 'App\Entity\Lieux_de_stage'
-          list:
-            fields: ['id', 'lieux', 'organisme', 'adresse', 'code_postal', 'ville', 'numero_telephone_fixe', 'latitude', 'longitude', 'divers']
-          form:
-              fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - lieux
-                  - organisme
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse' }
-                  - adresse
-                  - code_postal
-                  - ville
-                  - { type: 'group', label: 'Contact information', icon: 'phone',
-                        css_class: 'col-sm-6' }
-                  - numero_telephone_fixe
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Coordonnées' }
-                  - latitude
-                  - longitude
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Autres' }
-                  - divers
-
         Permis:
           class: 'App\Entity\Permis'
           list:
-            fields: ['id', 'civilite', 'stagiaires', 'numero_permis', 'delivre_le', 'prefectures']
+            fields: ['stagiaires', 'permis', 'delivre_le', 'prefectures']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - { property: 'civilite', type: 'text' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
                   - { property: 'stagiaires', class: 'App\Entity\Stagiaire' }
-                  - { property: 'numero_permis', type: 'text' }
+                  - { property: 'permis', type: 'text'}
                   - { property: 'delivre_le', type: 'birthday' }
                   - { property: 'prefectures', class: 'App\Entity\Prefecture' }
-
-        Stage:
-          class: 'App\Entity\Stage'
+                  
+        Bordereau:
+          class: 'App\Entity\Bordereau'
           list:
-              fields: ['id', 'date_de_stage', 'animateur', 'animateur_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires']
+            fields: ['autorite', 'etablissement', 'adresse', 'code_postal', 'ville', 'prefectures', 'tribunaux', 'stagiaires_stages']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - { property: 'date_de_stage', type: 'birthday' }
-                  - { property: 'animateur', class: 'App\Entity\Animateur' }
-                  - { property: 'animateur_deux', class: 'App\Entity\Animateur' }
-                  - { property: 'stage_hpo' }
-                  - { property: 'lieux_de_stage', class: 'App\Entity\Lieux_de_stage' }
-                  - { property: 'stagiaires', class: 'App\Entity\Stagiaire_Stage' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - autorite
+                  - etablissement
+                  - adresse
+                  - code_postal
+                  - ville
+                  - prefectures
+                  - tribunaux
 
         Stagiaire_Stage:
           class: 'App\Entity\Stagiaire_Stage'
           list:
-              fields: ['id', 'stagiaires', 'stages', 'paye', 'prix', 'cas', 'bordereaux', 'envoi_inscription', 'envoi_convocation', 'courrier', 'email', 'alerte', 'bulletin_inscription', 'cni', 'copie_permis', 'releve_integral', 'decision_judiciaire', 'n48', 'observations']
+              fields: ['stagiaires', 'stages', 'paye', 'prix', 'cas', 'bordereaux', 'envoi_inscription', 'envoi_convocation', 'courrier', 'email', 'alerte', 'bulletin_inscription', 'cni', 'copie_permis', 'releve_integral', 'decision_judiciaire', 'n48', 'observations']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
                   - stagiaires
                   - stages
                   - paye
                   - prix
                   - cas
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration', icon: 'book' }
                   - bordereaux
                   - envoi_inscription
                   - envoi_convocation
@@ -171,64 +116,136 @@ easy_admin:
                   - n48
                   - observations
 
-        Stagiaire:
-          class: 'App\Entity\Stagiaire'
+        Animateur:
+          class: 'App\Entity\Animateur'
           list:
-              fields: ['id', 'genre', 'nom', 'nom_epouse', 'prenom', 'date_de_naissance', 'lieu_de_naissance', 'pays', 'adresse', 'code_postal', 'commune', 'numero_telephone_fixe', 'numero_telephone_portable', 'numero_telephone_portable_deux', 'adresse_email', 'carte_avantage_jeunes', 'partenaires', 'adherents', 'permis', 'bordereaux', 'cas', 'infractions', 'stages']
+              fields: ['civilite', 'nom', 'prenom', 'fonctions', 'statut', 'gta', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'region', 'numero_telephone_fixe', 'numero_telephone_portable', 'adresse_email', 'urssaf', 'siret', 'forfait', 'km_ar', 'repas']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
-                  - { property: 'genre', type: 'text' }
-                  - { property: 'nom', type: 'text' }
-                  - { property: 'nom_epouse', type: 'text' }
-                  - { property: 'prenom', type: 'text' }
-                  - { property: 'date_de_naissance', type: 'birthday' }
-                  - { property: 'lieu_de_naissance', type: 'text' }
-                  - { property: 'pays', type: 'text' }
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse' }
-                  - { property: 'adresse', type: 'text' }
-                  - { property: 'code_postal', type: 'text' }
-                  - { property: 'commune', type: 'text' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - civilite
+                  - nom
+                  - prenom
+                  - fonctions
+                  - statut
+                  - gta
+                  - raison_sociale
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse', icon: 'location-arrow' }
+                  - adresse
+                  - code_postal
+                  - ville
+                  - region
                   - { type: 'group', label: 'Contact information', icon: 'phone',
                         css_class: 'col-sm-6' }
-                  - { property: 'numero_telephone_fixe', type: 'integer' }
-                  - { property: 'numero_telephone_portable', type: 'integer' }
-                  - { property: 'numero_telephone_portable_deux', type: 'integer' }
-                  - { property: 'adresse_email', type: 'text' }
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration' }
-                  - { property: 'carte_avantage_jeunes' }
-                  - { property: 'partenaires' }
-                  - { property: 'adherents' }
-                  - { property: 'permis', class: 'App\Entity\Permis' }
-                  - { property: 'bordereaux', class: 'App\Entity\Bordereau' }
-                  - { property: 'cas', class: 'App\Entity\Cas' }
-                  - { property: 'infractions', class: 'App\Entity\Infraction' }
-                  - { property: 'stages', class: 'App\Entity\Stagiaire_Stage' }
+                  - numero_telephone_fixe
+                  - numero_telephone_portable
+                  - adresse_email
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Administration', icon: 'book' }
+                  - urssaf
+                  - siret
+                  - forfait
+                  - km_ar
+                  - repas
+                  
+        Fonction:
+          class: 'App\Entity\Fonction'
+          list:
+            fields: ['fonction']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - fonction
+
+        Lieux_de_stage:
+          class: 'App\Entity\Lieux_de_stage'
+          list:
+            fields: ['lieux', 'organisme', 'adresse', 'code_postal', 'ville', 'numero_telephone_fixe', 'latitude', 'longitude', 'divers']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - lieux
+                  - organisme
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Adresse', icon: 'location-arrow' }
+                  - adresse
+                  - code_postal
+                  - ville
+                  - { type: 'group', label: 'Contact information', icon: 'phone',
+                        css_class: 'col-sm-6' }
+                  - numero_telephone_fixe
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Coordonnées' }
+                  - latitude
+                  - longitude
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Autres' }
+                  - divers
 
         Tribunal:
           class: 'App\Entity\Tribunal'
           list:
-            fields: ['id', 'tribunal', 'numero_parquet']
+            fields: ['tribunal', 'numero_parquet']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
                   - tribunal
                   - numero_parquet
+
+        Prefecture:
+          class: 'App\Entity\Prefecture'
+          list:
+            fields: ['prefecture', 'permis']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - prefecture
 
         Type_infraction:
           class: 'App\Entity\Type_infraction'
           list:
-            fields: ['id', 'types_infractions']
+            fields: ['types_infractions']
           form:
               fields:
-                  - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
                   - types_infractions
 
+        Cas:
+          class: 'App\Entity\Cas'
+          list:
+            fields: ['cas', 'description']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - cas
+                  - description
+
+        Admin:
+          class: 'App\Entity\Admin'
+          list:
+              fields: ['pseudo', 'adresse_email', 'password']
+          form:
+              fields:
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - pseudo
+                  - adresse_email
+                  - password
 
     site_name: "Afer"
 
     design:
         form_theme: 'vertical'
+        menu: 
+            - { entity: 'Stage', icon: 'users' }
+            - { entity: 'Stagiaire', icon: 'user' }
+            - { entity: 'Infraction', icon: 'car' }
+            - { entity: 'Permis', icon: 'id-card' }
+            - { entity: 'Bordereau', icon: 'paper-plane' }
+            - { entity: 'Stagiaire_Stage', icon: 'users' }
+            - { entity: 'Animateur', icon: ' ' }
+            - { entity: 'Fonction', icon: ' ' }
+            - { entity: 'Lieux_de_stage', icon: ' ' }
+            - { entity: 'Tribunal', icon: ' ' }
+            - { entity: 'Prefecture', icon: ' ' }
+            - { entity: 'Type_infraction', icon: ' ' }
+            - { entity: 'Cas', icon: ' ' }
+            - { entity: 'Admin', icon: ' ' }
         assets:
             favicon:
                 path: 'backend/favicon.png'

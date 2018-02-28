@@ -27,12 +27,12 @@ class Stagiaire_Stage
     private $id;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Stagiaire", inversedBy="stages")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     public $stagiaires;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Stage", inversedBy="stagiaires")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     public $stages;
     /**
@@ -45,7 +45,7 @@ class Stagiaire_Stage
     private $prix;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Cas")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $cas;
     /**

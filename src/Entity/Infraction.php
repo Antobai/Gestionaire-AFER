@@ -20,11 +20,11 @@ class Infraction
      */
     private $heure;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $lieu;
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date", nullable=false)
      */
     private $date_infraction;
     /**
@@ -45,12 +45,12 @@ class Infraction
     private $stagiaires;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Tribunal", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $tribunaux;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Type_infraction", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $types_infractions;
     /**

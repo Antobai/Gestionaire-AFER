@@ -16,7 +16,8 @@ class Fonction
      */
     private $id;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
+     * @ORM\OneToMany(targetEntity="App\Entity\Animateur", mappedBy="fonctions")
      */
     private $fonction;
     /**
@@ -52,8 +53,10 @@ class Fonction
         $this->fonction = $fonction;
         return $this;
     }
+    
     public function __toString()
     {
         return $this->fonction;
     }
+
 }

@@ -16,11 +16,11 @@ class Stagiaire
      */
     private $id;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $genre;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $nom;
     /**
@@ -28,47 +28,47 @@ class Stagiaire
      */
     private $nom_epouse;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $prenom;
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date", nullable=false)
      */
     private $date_de_naissance;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $lieu_de_naissance;
         /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $pays;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $code_postal;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $commune;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $numero_telephone_fixe;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $numero_telephone_portable;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $numero_telephone_portable_deux;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse_email;
     /**
@@ -84,19 +84,8 @@ class Stagiaire
      */
     private $adherents;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Permis", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-     * @ORM\Column(type="integer")
-     */
-    private $permis;
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Bordereau", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $bordereaux;
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Cas", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $cas;
     /**
@@ -405,40 +394,6 @@ class Stagiaire
         return $this;
     }
     /**
-     * Get the value of permis
-     */
-    public function getPermis()
-    {
-        return $this->permis;
-    }
-    /**
-     * Set the value of permis
-     *
-     * @return  self
-     */
-    public function setPermis($permis)
-    {
-        $this->permis = $permis;
-        return $this;
-    }
-    /**
-     * Get the value of bordereaux
-     */
-    public function getBordereaux()
-    {
-        return $this->bordereaux;
-    }
-    /**
-     * Set the value of bordereaux
-     *
-     * @return  self
-     */
-    public function setBordereaux($bordereaux)
-    {
-        $this->bordereaux = $bordereaux;
-        return $this;
-    }
-    /**
      * Get the value of cas
      */
     public function getCas()
@@ -540,6 +495,7 @@ class Stagiaire
         $this->numero_telephone_portable_deux = $numero_telephone_portable_deux;
         return $this;
     }
+    
     public function __toString()
     {
         return $this->nom ." ". $this->prenom;

@@ -30,19 +30,19 @@ class Bordereau
      */
     private $autorite;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $etablissement;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
-    private $code_adresse;
+    private $code_postal;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $ville;
     /**
@@ -142,26 +142,6 @@ class Bordereau
     }
 
     /**
-     * Get the value of code_adresse
-     */ 
-    public function getCodeadresse()
-    {
-        return $this->code_adresse;
-    }
-
-    /**
-     * Set the value of code_adresse
-     *
-     * @return  self
-     */ 
-    public function setCodeadresse($code_adresse)
-    {
-        $this->code_adresse = $code_adresse;
-
-        return $this;
-    }
-
-    /**
      * Get the value of ville
      */ 
     public function getVille()
@@ -241,11 +221,30 @@ class Bordereau
         return $this;
     }
 
+    /**
+     * Get the value of code_postal
+     */ 
+    public function getCodepostal()
+    {
+        return $this->code_postal;
+    }
+
+    /**
+     * Set the value of code_postal
+     *
+     * @return  self
+     */ 
+    public function setCodepostal($code_postal)
+    {
+        $this->code_postal = $code_postal;
+
+        return $this;
+    }
+
     public function __toString(){
-        $code_postal = strval($this->code_adresse);
-        var_dump($code_postal);
-        $bordereaux = $this->autorite . $this->etablissement . $this->adresse .  $this->ville ;
-        //var_dump($bordereaux);
+        $code_postal = strval($this->code_postal);
+        $bordereaux = $this->autorite . " " . $this->etablissement . " " . $this->adresse . " " . $this->ville ;
         return $bordereaux;
     }
+
 }

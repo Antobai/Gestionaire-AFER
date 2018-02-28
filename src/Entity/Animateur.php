@@ -27,19 +27,19 @@ class Animateur
      */
     private $id;
      /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $civilite;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $nom;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $prenom;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Fonction", cascade={"persist"})
+     * @ORM\Column(type="string", nullable=true)
      * @ORM\JoinColumn(nullable=true)
      */
     private $statut;
@@ -52,56 +52,55 @@ class Animateur
      */
     private $raison_sociale;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $code_postal;
      /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $ville;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $region;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $numero_telephone_fixe;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $numero_telephone_portable;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse_email;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $urssaf;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $siret;
     /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $forfait;
-        /**
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $km_ar;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $repas;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Fonction")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Fonction", inversedBy="fonction")
      */
     private $fonctions;
     /**
@@ -483,10 +482,25 @@ class Animateur
 
         return $this;
     }
-    public function __toString() {
-        $animateurs = $this->nom . " "  . $this->prenom;
-        //var_dump($animateurs);
-        return $animateurs;
+
+    /**
+     * Get the value of stages
+     */ 
+    public function getStages()
+    {
+        return $this->stages;
+    }
+
+    /**
+     * Set the value of stages
+     *
+     * @return self
+     */ 
+    public function setStages($stages)
+    {
+        $this->stages = $stages;
+
+        return $this;
     }
 
     /**
@@ -507,5 +521,10 @@ class Animateur
         $this->fonctions = $fonctions;
 
         return $this;
+    }
+        
+    public function __toString() {
+        $animateurs = $this->nom . " "  . $this->prenom;
+        return $animateurs; 
     }
 }

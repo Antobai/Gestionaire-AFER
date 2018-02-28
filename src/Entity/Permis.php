@@ -11,9 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
-
  * @ORM\Entity(repositoryClass="App\Repository\PermisRepository")
-
  */
 
 class Permis
@@ -25,16 +23,12 @@ class Permis
      * @ORM\Column(type="integer")
      */
     private $id;
-     /**
-     * @ORM\Column(type="string")
-     */
-    private $civilite;
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $numero_permis;
+    private $permis;
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date", nullable=false)
      */
     private $delivre_le;
     /**
@@ -43,10 +37,11 @@ class Permis
      */
     private $stagiaires;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Prefecture", mappedBy="permis")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Prefecture", inversedBy="permis")
      * @ORM\JoinColumn(nullable=true)
      */
     private $prefectures;
+
     /**
      * Get the value of id
      */ 
@@ -57,7 +52,6 @@ class Permis
 
     /**
      * Set the value of id
-     *
      * @return  self
      */ 
     public function setId($id)
@@ -68,41 +62,20 @@ class Permis
     }
 
     /**
-     * Get the value of civilite
+     * Get the value of permis
      */ 
-    public function getCivilite()
+    public function getpermis()
     {
-        return $this->civilite;
+        return $this->permis;
     }
 
     /**
-     * Set the value of civilite
-     *
+     * Set the value of permis
      * @return  self
      */ 
-    public function setCivilite($civilite)
+    public function setpermis($permis)
     {
-        $this->civilite = $civilite;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of numero_permis
-     */ 
-    public function getNumeropermis()
-    {
-        return $this->numero_permis;
-    }
-
-    /**
-     * Set the value of numero_permis
-     *
-     * @return  self
-     */ 
-    public function setNumeropermis($numero_permis)
-    {
-        $this->numero_permis = $numero_permis;
+        $this->permis = $permis;
 
         return $this;
     }
@@ -117,7 +90,6 @@ class Permis
 
     /**
      * Set the value of delivre_le
-     *
      * @return  self
      */ 
     public function setDelivrele($delivre_le)
@@ -126,7 +98,6 @@ class Permis
 
         return $this;
     }
-
 
     /**
      * Get the value of stagiaires
@@ -167,4 +138,5 @@ class Permis
 
         return $this;
     }
+
 }
