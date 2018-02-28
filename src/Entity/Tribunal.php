@@ -16,11 +16,11 @@ class Tribunal
      */
     private $id;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $tribunal;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $numero_parquet;
     /**

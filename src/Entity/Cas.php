@@ -26,7 +26,7 @@ class Cas
      */
     private $id;
      /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $cas;
     /**

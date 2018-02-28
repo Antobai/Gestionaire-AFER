@@ -53,6 +53,7 @@ class Fonction
         $this->fonction = $fonction;
         return $this;
     }
+    
     public function __toString()
     {
         return $this->fonction;

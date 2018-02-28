@@ -16,27 +16,27 @@ class Lieux_de_stage
      */
     private $id;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $lieux;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $organisme;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $code_postal;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $ville;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $numero_telephone_fixe;
     /**

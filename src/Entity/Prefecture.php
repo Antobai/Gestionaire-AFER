@@ -26,11 +26,11 @@ class Prefecture
      */
     private $id;
      /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $prefecture;
    /** 
-    * @ORM\OneToOne(targetEntity="App\Entity\Permis", inversedBy="prefectures")
+    * @ORM\OneToMany(targetEntity="App\Entity\Permis", mappedBy="prefectures")
     * @ORM\JoinColumn(nullable=true)
     */
     private $permis;
@@ -93,6 +93,7 @@ class Prefecture
 
         return $this;
     }
+    
     public function __toString() {
         return $this->prefecture;
     }

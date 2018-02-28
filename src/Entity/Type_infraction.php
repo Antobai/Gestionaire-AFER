@@ -18,7 +18,7 @@ class Type_infraction
     /**
      * @ORM\Column(type="string")
      * @ORM\OneToMany(targetEntity="App\Entity\Infraction", mappedBy="types_infractions")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $types_infractions;
     /**

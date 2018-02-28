@@ -15,13 +15,17 @@ class Stage
      * @ORM\Column(type="integer")
      */
     private $id;
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     */
+    private $numero_stage;
      /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=false)
      */
     private $date_de_stage;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Animateur")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $animateur;
     /**
@@ -36,6 +40,7 @@ class Stage
     private $stage_hpo;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Lieux_de_stage", inversedBy="stages")
+     * @ORM\JoinColumn(nullable=false) 
      */
     private $lieux_de_stage;
      /**
@@ -115,7 +120,6 @@ class Stage
 
         return $this;
     }
-
 
     /**
      * Get the value of Stage Hpo
@@ -208,13 +212,48 @@ class Stage
         return $this;
     }
 
-    public function __toString() {
-      if(isset($this->lieux_de_stage)) {
-        return $this->lieux_de_stage->__toString() . $this->animateurs->__toString();
-      }
-      else {
-        return "Stage sans lieu indiqué";
-      }
-
+    /**
+     * Get the value of animateur_deux
+     */ 
+    public function getAnimateur_deux()
+    {
+        return $this->animateur_deux;
     }
+
+    /**
+     * Set the value of animateur_deux
+     *
+     * @return  self
+     */ 
+    public function setAnimateur_deux($animateur_deux)
+    {
+        $this->animateur_deux = $animateur_deux;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of numero_stage
+     */ 
+    public function getNumerostage()
+    {
+        return $this->numero_stage;
+    }
+
+    /**
+     * Set the value of numero_stage
+     *
+     * @return  self
+     */ 
+    public function setNumerostage($numero_stage)
+    {
+        $this->numero_stage = $numero_stage;
+
+        return $this;
+    }
+
+    public function __toString() {     
+          return $this->numero_stage;
+      }
+  
 }

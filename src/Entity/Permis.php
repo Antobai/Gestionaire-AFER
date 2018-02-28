@@ -28,9 +28,9 @@ class Permis
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $numero_permis;
+    private $permis;
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date", nullable=false)
      */
     private $delivre_le;
     /**
@@ -39,27 +39,45 @@ class Permis
      */
     private $stagiaires;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Prefecture", mappedBy="permis")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Prefecture", inversedBy="permis")
      * @ORM\JoinColumn(nullable=true)
      */
     private $prefectures;
 
     /**
-     * Get the value of numero_permis
+     * Get the value of id
      */ 
-    public function getNumeropermis()
+    public function getId()
     {
-        return $this->numero_permis;
+        return $this->id;
     }
 
     /**
-     * Set the value of numero_permis
-     *
+     * Set the value of id
      * @return  self
      */ 
-    public function setNumeropermis($numero_permis)
+    public function setId($id)
     {
-        $this->numero_permis = $numero_permis;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of permis
+     */ 
+    public function getpermis()
+    {
+        return $this->permis;
+    }
+
+    /**
+     * Set the value of permis
+     * @return  self
+     */ 
+    public function setpermis($permis)
+    {
+        $this->permis = $permis;
 
         return $this;
     }
@@ -74,7 +92,6 @@ class Permis
 
     /**
      * Set the value of delivre_le
-     *
      * @return  self
      */ 
     public function setDelivrele($delivre_le)
@@ -83,7 +100,6 @@ class Permis
 
         return $this;
     }
-
 
     /**
      * Get the value of stagiaires
@@ -125,23 +141,4 @@ class Permis
         return $this;
     }
 
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 }

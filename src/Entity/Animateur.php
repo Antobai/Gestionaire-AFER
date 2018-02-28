@@ -27,15 +27,15 @@ class Animateur
      */
     private $id;
      /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $civilite;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $nom;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $prenom;
     /**
@@ -52,39 +52,39 @@ class Animateur
      */
     private $raison_sociale;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $code_postal;
      /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $ville;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $region;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $numero_telephone_fixe;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $numero_telephone_portable;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $adresse_email;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $urssaf;
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $siret;
     /**
@@ -96,7 +96,7 @@ class Animateur
      */
     private $km_ar;
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $repas;
     /**
@@ -482,31 +482,6 @@ class Animateur
 
         return $this;
     }
-    public function __toString() {
-        $animateurs = $this->nom . " "  . $this->prenom;
-        return $animateurs;
-        
-    }
-
-    /**
-     * Get the value of animateurs
-     */ 
-    public function getAnimateurs()
-    {
-        return $this->animateurs;
-    }
-
-    /**
-     * Set the value of animateurs
-     *
-     * @return self
-     */ 
-    public function setAnimateurs($animateurs)
-    {
-        $this->animateurs = $animateurs;
-
-        return $this;
-    }
 
     /**
      * Get the value of stages
@@ -546,5 +521,10 @@ class Animateur
         $this->fonctions = $fonctions;
 
         return $this;
+    }
+        
+    public function __toString() {
+        $animateurs = $this->nom . " "  . $this->prenom;
+        return $animateurs; 
     }
 }
