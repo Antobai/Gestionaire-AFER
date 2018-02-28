@@ -120,17 +120,14 @@ easy_admin:
         Permis:
           class: 'App\Entity\Permis'
           list:
-            fields: ['id', 'civilite', 'nom', 'nom_epouse', 'prenom', 'numero_permis', 'delivre_le', 'stagiaires', 'prefectures']
+            fields: ['id', 'civilite', 'stagiaires', 'numero_permis', 'delivre_le', 'prefectures']
           form:
               fields:
                   - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
                   - { property: 'civilite', type: 'text' }
-                  - { property: 'nom', type: 'text' }
-                  - { property: 'nom_epouse', type: 'text' }
-                  - { property: 'prenom', type: 'text' }
+                  - { property: 'stagiaires', class: 'App\Entity\Stagiaire' }
                   - { property: 'numero_permis', type: 'text' }
                   - { property: 'delivre_le', type: 'birthday' }
-                  - { property: 'stagiaires', class: 'App\Entity\Stagiaire' }
                   - { property: 'prefectures', class: 'App\Entity\Prefecture' }
 
         Stage:

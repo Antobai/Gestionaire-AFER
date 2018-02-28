@@ -100,8 +100,7 @@ class Animateur
      */
     private $repas;
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Fonction"
-     * )
+     * @ORM\OneToOne(targetEntity="App\Entity\Fonction")
      * @ORM\JoinColumn(nullable=true)
      */
     private $fonctions;
@@ -488,47 +487,6 @@ class Animateur
         $animateurs = $this->nom . " "  . $this->prenom;
         //var_dump($animateurs);
         return $animateurs;
-        
-    }
-
-    /**
-     * Get the value of animateurs
-     */ 
-    public function getAnimateurs()
-    {
-        return $this->animateurs;
-    }
-
-    /**
-     * Set the value of animateurs
-     *
-     * @return self
-     */ 
-    public function setAnimateurs($animateurs)
-    {
-        $this->animateurs = $animateurs;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of stages
-     */ 
-    public function getStages()
-    {
-        return $this->stages;
-    }
-
-    /**
-     * Set the value of stages
-     *
-     * @return self
-     */ 
-    public function setStages($stages)
-    {
-        $this->stages = $stages;
-
-        return $this;
     }
 
     /**
