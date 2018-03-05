@@ -16,6 +16,10 @@ class Stagiaire
      */
     private $id;
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $date_de_creation;
+    /**
      * @ORM\Column(type="string", nullable=false)
      */
     private $genre;
@@ -93,6 +97,10 @@ class Stagiaire
      * @ORM\JoinColumn(nullable=true)
      */
     private $infractions;
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $prix;
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stagiaires")
     * @ORM\JoinColumn(nullable=true)
@@ -499,5 +507,45 @@ class Stagiaire
     public function __toString()
     {
         return $this->nom ." ". $this->prenom;
+    }
+
+    /**
+     * Get the value of prix
+     */ 
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set the value of prix
+     *
+     * @return  self
+     */ 
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of date_de_creation
+     */ 
+    public function getDatedecreation()
+    {
+        return $this->date_de_creation;
+    }
+
+    /**
+     * Set the value of date_de_creation
+     *
+     * @return  self
+     */ 
+    public function setDatedecreation($date_de_creation)
+    {
+        $this->date_de_creation = $date_de_creation;
+
+        return $this;
     }
 }

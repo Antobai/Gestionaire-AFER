@@ -21,10 +21,11 @@ easy_admin:
         Stagiaire:
           class: 'App\Entity\Stagiaire'
           list:
-              fields: ['genre', 'nom', 'nom_epouse', 'prenom', 'date_de_naissance', 'lieu_de_naissance', 'pays', 'adresse', 'code_postal', 'commune', 'numero_telephone_fixe', 'numero_telephone_portable', 'numero_telephone_portable_deux', 'adresse_email', 'carte_avantage_jeunes', 'partenaires', 'adherents', 'cas', 'infractions', 'stages']
+              fields: ['date_de_creation', 'genre', 'nom', 'nom_epouse', 'prenom', 'date_de_naissance', 'lieu_de_naissance', 'pays', 'adresse', 'code_postal', 'commune', 'numero_telephone_fixe', 'numero_telephone_portable', 'numero_telephone_portable_deux', 'adresse_email', 'carte_avantage_jeunes', 'partenaires', 'adherents', 'cas', 'infractions', 'prix', 'stages']
           form:
               fields:
                   - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
+                  - { property: 'date_de_creation', type: 'text'}
                   - { property: 'genre', type: 'text' }
                   - { property: 'nom', type: 'text' }
                   - { property: 'nom_epouse', type: 'text' }
@@ -47,6 +48,7 @@ easy_admin:
                   - { property: 'partenaires' }
                   - { property: 'adherents' }
                   - { property: 'cas', class: 'App\Entity\Cas' }
+                  - { property: 'prix', type: 'text'}
                   
         Infraction:
           class: 'App\Entity\Infraction'
