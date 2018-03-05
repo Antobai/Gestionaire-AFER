@@ -22,7 +22,11 @@ class Stage
      /**
      * @ORM\Column(type="date", nullable=false)
      */
-    private $date_de_stage;
+    private $debut_de_stage;
+     /**
+     * @ORM\Column(type="date", nullable=false)
+     */
+    private $fin_de_stage;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Animateur")
      * @ORM\JoinColumn(nullable=false)
@@ -43,11 +47,15 @@ class Stage
      * @ORM\JoinColumn(nullable=false) 
      */
     private $lieux_de_stage;
-     /**
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Stagiaire_Stage", mappedBy="stages")
      * @ORM\JoinColumn(nullable=true)
      */
     private $stagiaires;
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $alert;
     
     /**
      * Get the value of Id
@@ -69,30 +77,6 @@ class Stage
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Date De Stage
-     *
-     * @return mixed
-     */
-    public function getDateDeStage()
-    {
-        return $this->date_de_stage;
-    }
-
-    /**
-     * Set the value of Date De Stage
-     *
-     * @param mixed date_de_stage
-     *
-     * @return self
-     */
-    public function setDateDeStage($date_de_stage)
-    {
-        $this->date_de_stage = $date_de_stage;
 
         return $this;
     }
@@ -213,26 +197,6 @@ class Stage
     }
 
     /**
-     * Get the value of animateur_deux
-     */ 
-    public function getAnimateur_deux()
-    {
-        return $this->animateur_deux;
-    }
-
-    /**
-     * Set the value of animateur_deux
-     *
-     * @return  self
-     */ 
-    public function setAnimateur_deux($animateur_deux)
-    {
-        $this->animateur_deux = $animateur_deux;
-
-        return $this;
-    }
-
-    /**
      * Get the value of numero_stage
      */ 
     public function getNumerostage()
@@ -256,4 +220,64 @@ class Stage
           return $this->numero_stage;
       }
   
+
+    /**
+     * Get the value of alert
+     */ 
+    public function getAlert()
+    {
+        return $this->alert;
+    }
+
+    /**
+     * Set the value of alert
+     *
+     * @return  self
+     */ 
+    public function setAlert($alert)
+    {
+        $this->alert = $alert;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fin_de_stage
+     */ 
+    public function getFindestage()
+    {
+        return $this->fin_de_stage;
+    }
+
+    /**
+     * Set the value of fin_de_stage
+     *
+     * @return  self
+     */ 
+    public function setFindestage($fin_de_stage)
+    {
+        $this->fin_de_stage = $fin_de_stage;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of debut_de_stage
+     */ 
+    public function getDebutdestage()
+    {
+        return $this->debut_de_stage;
+    }
+
+    /**
+     * Set the value of debut_de_stage
+     *
+     * @return  self
+     */ 
+    public function setDebutdestage($debut_de_stage)
+    {
+        $this->debut_de_stage = $debut_de_stage;
+
+        return $this;
+    }
 }

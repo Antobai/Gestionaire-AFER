@@ -72,10 +72,6 @@ class Stagiaire_Stage
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $alerte;
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
     private $bulletin_inscription;
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -216,26 +212,6 @@ class Stagiaire_Stage
     public function setBulletininscription($bulletin_inscription)
     {
         $this->bulletin_inscription = $bulletin_inscription;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of alerte
-     */ 
-    public function getAlerte()
-    {
-        return $this->alerte;
-    }
-
-    /**
-     * Set the value of alerte
-     *
-     * @return  self
-     */ 
-    public function setAlerte($alerte)
-    {
-        $this->alerte = $alerte;
 
         return $this;
     }

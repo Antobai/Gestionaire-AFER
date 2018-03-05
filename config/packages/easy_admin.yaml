@@ -4,16 +4,19 @@ easy_admin:
         Stage:
           class: 'App\Entity\Stage'
           list:
-              fields: ['numero_stage', 'date_de_stage', 'animateur', 'animateur_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires']
+              fields: ['numero_stage', 'debut_de_stage', 'fin_de_stage', 'animateur', 'animateur_deux', 'stage_hpo', 'lieux_de_stage', 'stagiaires', 'alert']
           form:
               fields:
                   - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
                   - { property: 'numero_stage', type: 'text' }
-                  - { property: 'date_de_stage', type: 'date' }
+                  - { property: 'debut_de_stage', type: 'date' }
+                  - { property: 'fin_de_stage', type: 'date' }
                   - { property: 'animateur', class: 'App\Entity\Animateur' }
                   - { property: 'animateur_deux', class: 'App\Entity\Animateur' }
                   - { property: 'stage_hpo' }
                   - { property: 'lieux_de_stage', class: 'App\Entity\Lieux_de_stage' }
+                  - { type: 'group', css_class: 'col-sm-6', label: 'Urgent', icon: 'bell' }
+                  - { property: 'alert' }
 
         Stagiaire:
           class: 'App\Entity\Stagiaire'
@@ -92,7 +95,7 @@ easy_admin:
         Stagiaire_Stage:
           class: 'App\Entity\Stagiaire_Stage'
           list:
-              fields: ['stagiaires', 'stages', 'paye', 'prix', 'cas', 'bordereaux', 'envoi_inscription', 'envoi_convocation', 'courrier', 'email', 'alerte', 'bulletin_inscription', 'cni', 'copie_permis', 'releve_integral', 'decision_judiciaire', 'n48', 'observations']
+              fields: ['stagiaires', 'stages', 'paye', 'prix', 'cas', 'bordereaux', 'envoi_inscription', 'envoi_convocation', 'courrier', 'email', 'bulletin_inscription', 'cni', 'copie_permis', 'releve_integral', 'decision_judiciaire', 'n48', 'observations']
           form:
               fields:
                   - { type: 'group', css_class: 'col-sm-6', label: 'Information', icon: 'info-circle' }
@@ -107,7 +110,6 @@ easy_admin:
                   - envoi_convocation
                   - courrier
                   - email
-                  - alerte
                   - bulletin_inscription
                   - cni
                   - copie_permis

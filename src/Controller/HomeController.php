@@ -44,8 +44,8 @@ class HomeController extends Controller
     public function indexmail(\Swift_Mailer $mailer)
 {
     $message = (new \Swift_Message('Hello Email'))
-        ->setFrom('benjamin.g@codeur.online')
-        ->setTo('benjamin.g@codeur.online')
+        ->setFrom('remi.s@codeur.online')
+        ->setTo('remi.s@codeur.online')
         ->setBody(
             $this->renderView(
                 // templates/emails/registration.html.twig
