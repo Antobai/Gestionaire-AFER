@@ -44,12 +44,12 @@ class Stagiaire_Stage
      */
     private $prix;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Cas")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Cas", cascade="remove")
+     * @ORM\JoinColumn(nullable=false, onDelete="cascade")
      */
     private $cas;
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Bordereau", inversedBy="stagiaires_stages")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Bordereau", inversedBy="stagiaires_stages", cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $bordereaux;
